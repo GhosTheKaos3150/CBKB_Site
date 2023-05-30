@@ -7,4 +7,10 @@ export interface Todo {
 export interface Meta {
   totalCount: number;
 }
+
+export interface Teacher {
+  _id: string | undefined;
+  name: string;
+  desc: string;
+}
 // Deletar Depois

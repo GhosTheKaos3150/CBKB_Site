@@ -3,11 +3,13 @@
     <div class="text-h3 text-center q-mb-lg">Acesse sua Conta</div>
     <q-input filled v-model="user" class="q-mb-md" label="Usuário" />
     <q-input
+      id=""
       filled
       v-model="pwd"
       class="q-mb-md"
       label="Senha"
       :type="isPwd ? 'password' : 'text'"
+      @keydown.enter.prevent="sendLogin"
     >
       <template v-slot:append>
         <q-icon
@@ -27,6 +29,7 @@
 </template>
 
 <script lang="ts">
+import { send } from 'process';
 import { useQuasar } from 'quasar';
 import { api } from 'src/boot/axios';
 import { defineComponent } from 'vue';
@@ -40,24 +43,49 @@ export default defineComponent({
       isPwd: true,
     };
   },
+  mounted() {
+    if (localStorage.token) {
+      const headers = {
+        Authorization: 'Bearer ' + localStorage.token,
+      };
+
+      api.get('/user/auth', { headers: headers }).then((res) => {
+        if (res.status === 200) this.$router.push({ path: '/admin' });
+      });
+    }
+  },
   methods: {
-    sendLogin() {
+    async sendLogin() {
       const login = { username: this.user, password: this.pwd };
-      api
+      let canRedirect = false;
+
+      this.$q.loading.show();
+      await api
         .post('/user/login', login)
         .then((res) => {
           return res.data;
         })
         .then((json) => {
-          console.log(json.token);
           localStorage.token = json.token;
+          canRedirect = true;
         })
-        .catch(() => {
-          this.$q.notify({
-            type: 'warning',
-            message: 'Usuário ou Senha Incorreto(s). Tente Novamente.',
-          });
+        .catch((e) => {
+          if (e.response.status === 401) {
+            this.$q.notify({
+              type: 'negative',
+              message:
+                'Você ainda não tem autorização para acessar o Sistema. Contate o Administrador.',
+            });
+          } else {
+            this.$q.notify({
+              type: 'warning',
+              message: 'Usuário ou Senha Incorreto(s). Tente Novamente.',
+            });
+          }
         });
+
+      this.$q.loading.hide();
+      if (canRedirect) this.$router.push({ path: '/admin' });
     },
   },
 });
