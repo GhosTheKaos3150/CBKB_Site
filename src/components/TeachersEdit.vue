@@ -22,6 +22,15 @@
       type="textarea"
     />
   </div>
+  <div class="row q-mb-md">
+    <q-file
+      class="col-2"
+      counter
+      v-model="file"
+      label="Selecione uma Imagem"
+      accept=".jpg, image/*"
+    />
+  </div>
   <div class="row">
     <q-space />
     <q-btn class="q-mr-sm" color="primary" label="Salvar" @click="send" />
@@ -30,13 +39,11 @@
 </template>
 
 <script lang="ts">
-import { PropType, defineComponent } from 'vue';
+import { PropType, defineComponent, ref } from 'vue';
 import { Teacher } from './models';
 import { api } from 'src/boot/axios';
 export default defineComponent({
   name: 'TeacherEdit',
-
-  // Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet augue ac leo cursus consequat. Fusce tincidunt nec nisi in ornare.
 
   props: {
     selectedProf: {
@@ -45,6 +52,12 @@ export default defineComponent({
     },
   },
   emits: ['selectedProf'],
+
+  setup() {
+    return {
+      file: ref<File>(),
+    };
+  },
 
   data: () => {
     return {
@@ -58,14 +71,33 @@ export default defineComponent({
 
   methods: {
     async send() {
+      let reload = false;
+      this.$q.loading.show();
+
       if (this.selectedProf._id) {
         const updatedProf = {
           name: this.prof.name,
           desc: this.prof.desc,
+          _img: `tch_${this.prof._id}.png`,
         };
+        const headers = {
+          Authorization: 'Bearer ' + localStorage.token,
+        };
+        const formData = new FormData();
+
+        if (this.file) {
+          formData.append(this.file.name, this.file);
+          await api
+            .post(`/upload/tch_${this.prof._id}.png`, formData, {
+              headers: { 'Content-Type': 'multipart/form-data' },
+            })
+            .then((res) => {
+              console.log(res.status);
+            });
+        }
 
         await api
-          .put(`/professor/${this.prof._id}`, updatedProf)
+          .put(`/professor/${this.prof._id}`, updatedProf, { headers: headers })
           .then((res) => {
             if (res.status === 204) {
               this.$q.notify({
@@ -74,6 +106,7 @@ export default defineComponent({
               });
 
               this.$emit('selectedProf', null);
+              reload = true;
             }
           })
           .catch(() => {
@@ -87,10 +120,26 @@ export default defineComponent({
         const newProf = {
           name: this.prof.name,
           desc: this.prof.desc,
+          _img: `tch_${this.prof._id}.png`,
         };
+        const headers = {
+          Authorization: 'Bearer ' + localStorage.token,
+        };
+        const formData = new FormData();
+
+        if (this.file) {
+          formData.append(this.file.name, this.file);
+          await api
+            .post(`/upload/tch_${this.prof._id}.png`, formData, {
+              headers: { 'Content-Type': 'multipart/form-data' },
+            })
+            .then((res) => {
+              console.log(res.status);
+            });
+        }
 
         await api
-          .post('/professor', newProf)
+          .post('/professor', newProf, { headers: headers })
           .then((res) => {
             if (res.status === 201) {
               this.$q.notify({
@@ -99,6 +148,7 @@ export default defineComponent({
               });
 
               this.$emit('selectedProf', null);
+              reload = true;
             }
           })
           .catch(() => {
@@ -109,6 +159,9 @@ export default defineComponent({
             });
           });
       }
+      this.$q.loading.hide();
+
+      if (reload) this.$router.go(0);
     },
     cancel() {
       this.$emit('selectedProf', null);

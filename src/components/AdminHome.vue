@@ -1,6 +1,9 @@
 <template>
-  <div class="absolute-center">
-    <div class="text-h3 text-center q-mb-md">ADMINISTRAÇÃO</div>
+  <div
+    class="absolute-center"
+    :style="$q.platform.is.mobile ? 'width: 90%' : ''"
+  >
+    <div class="text-h3 text-center q-mb-md">BEM VINDO!</div>
     <q-btn
       class="q-mb-sm"
       align="between"

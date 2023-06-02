@@ -1,8 +1,8 @@
 <template>
   <div class="d-flex row">
     <q-card
-      v-for="prof in profes"
-      :key="prof._id"
+      v-for="actv in activities"
+      :key="actv._id"
       class="my-card q-mb-md q-mx-sm"
       :class="$q.platform.is.mobile ? 'col-grow' : ''"
       style="width: 49%"
@@ -14,12 +14,27 @@
           :ratio="$q.platform.is.mobile ? 16 / 9 : 1"
           :width="$q.platform.is.mobile ? '100%' : '20%'"
           class="col-5"
-          :src="`http://localhost:8000/assets/${prof._img}`"
+          :src="`http://localhost:8000/assets/${actv._img}`"
         />
-        <q-card-section style="width: 100%">
-          <div class="text-h6">{{ prof.name }}</div>
+        <q-card-section>
+          <div class="text-h6">{{ actv.name }}</div>
           <q-separator class="q-my-md" />
-          <div class="text-p">{{ prof.desc }}</div>
+          <div class="text-p">
+            {{ actv.desc }}
+          </div>
+          <q-separator class="q-my-md" />
+          <div class="text-p text-bold q-mb-sm">Outras Informações:</div>
+          <div v-if="actv.obsv" class="text-p">
+            Observação: <span class="text-italic">{{ actv.obsv }}</span>
+          </div>
+          <div v-if="actv.isGratuita">
+            <div class="text-p text-italic">Atividade Gratuita</div>
+          </div>
+          <div v-else>
+            <div class="text-p text-italic">
+              Valor da Atividade: R$ {{ actv.valor }}
+            </div>
+          </div>
         </q-card-section>
       </q-card-section>
 
@@ -32,7 +47,7 @@
           round
           icon="edit"
           color="primary"
-          @click="$emit('selectedProf', prof)"
+          @click="$emit('selectedActv', actv)"
         />
         <q-btn
           flat
@@ -41,28 +56,28 @@
           color="primary"
           @click="
             dialogDelete = true;
-            deleteId = prof._id!;
+            deleteId = actv._id!;
           "
         />
       </q-card-actions>
     </q-card>
   </div>
   <q-btn
-    v-if="!$q.platform.is.mobile"
+    v-if="$q.platform.is.mobile"
     class="q-mb-sm'"
     align="center"
     size="lg"
     color="primary"
     icon="add"
     style="width: 100%"
-    @click="$emit('selectedProf', {} as Teacher)"
+    @click="$emit('selectedActv', {} as Activity)"
   />
   <q-page-sticky v-else position="bottom-right" :offset="[18, 18]">
     <q-btn
       fab
       icon="add"
       color="primary"
-      @click="$emit('selectedProf', {} as Teacher)"
+      @click="$emit('selectedActv', {} as Activity)"
     />
   </q-page-sticky>
 
@@ -74,7 +89,7 @@
       <q-separator />
       <q-card-section>
         <div class="text-p">
-          Você está prestes a deletar este professor do banco de dados!
+          Você está prestes a deletar esta Atividade do banco de dados!
         </div>
         <div class="text-p">
           Após confirmar, essa ação não poderá ser revertida.
@@ -85,7 +100,7 @@
       </q-card-section>
       <q-card-actions>
         <q-space />
-        <q-btn flat label="Sim" color="primary" @click="deleteTeacher()" />
+        <q-btn flat label="Sim" color="primary" @click="deleteActivity()" />
         <q-btn
           flat
           label="Não"
@@ -99,18 +114,17 @@
 
 <script lang="ts">
 import { PropType, defineComponent } from 'vue';
-import { Teacher } from './models';
+import { Activity } from './models';
 import { api } from 'src/boot/axios';
-
 export default defineComponent({
-  name: 'TeachersList',
-  emits: ['selectedProf'],
+  name: 'ActivityList',
+  emits: ['selectedActv'],
   props: {
-    profes: {
-      type: Object as PropType<Teacher[]>,
+    activities: {
+      type: Object as PropType<Activity[]>,
     },
-    profSelected: {
-      type: Object as PropType<Teacher>,
+    actvSelected: {
+      type: Object as PropType<Activity>,
     },
   },
   data: () => {
@@ -120,14 +134,14 @@ export default defineComponent({
     };
   },
   methods: {
-    async deleteTeacher() {
+    async deleteActivity() {
       const headers = {
         Authorization: 'Bearer ' + localStorage.token,
       };
       this.$q.loading.show();
 
       await api
-        .delete(`/professor/${this.deleteId}`, { headers: headers })
+        .delete(`/atividade/${this.deleteId}`, { headers: headers })
         .then((res) => {
           console.log(res);
           this.$router.go(0);

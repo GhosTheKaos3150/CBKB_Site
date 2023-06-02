@@ -29,10 +29,10 @@
 </template>
 
 <script lang="ts">
-import { send } from 'process';
 import { useQuasar } from 'quasar';
 import { api } from 'src/boot/axios';
 import { defineComponent } from 'vue';
+import { User } from './models';
 export default defineComponent({
   name: 'LoginComponent',
   data: () => {
@@ -67,6 +67,8 @@ export default defineComponent({
         })
         .then((json) => {
           localStorage.token = json.token;
+          localStorage.currentUser = json.user as User;
+
           canRedirect = true;
         })
         .catch((e) => {
