@@ -14,9 +14,9 @@
     <q-input
       filled
       counter
-      maxlength="128"
+      maxlength="256"
       class="q-mb-md"
-      v-model="prof.desc"
+      v-model="prof.description"
       label="Descrição do Professor"
       hint="Digite uma descrição amigável sobre o Professor"
       type="textarea"
@@ -77,7 +77,7 @@ export default defineComponent({
       if (this.selectedProf._id) {
         const updatedProf = {
           name: this.prof.name,
-          desc: this.prof.desc,
+          description: this.prof.description,
           _img: `tch_${this.prof._id}.png`,
         };
         const headers = {
@@ -93,6 +93,10 @@ export default defineComponent({
             })
             .then((res) => {
               console.log(res.status);
+              return res.data;
+            })
+            .then((json) => {
+              this.prof._id = json['id'];
             });
         }
 
@@ -119,7 +123,7 @@ export default defineComponent({
       } else {
         const newProf = {
           name: this.prof.name,
-          desc: this.prof.desc,
+          description: this.prof.description,
           _img: `tch_${this.prof._id}.png`,
         };
         const headers = {

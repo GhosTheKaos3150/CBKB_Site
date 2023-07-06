@@ -8,6 +8,15 @@ export interface Meta {
   totalCount: number;
 }
 
+export interface SelectOption {
+  label: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  value: any;
+  disabled: boolean;
+  description: string | null;
+  category: string | null;
+}
+
 export interface User {
   _id: string | null;
   username: string;
@@ -20,14 +29,14 @@ export interface User {
 export interface Teacher {
   _id: string | undefined;
   name: string;
-  desc: string;
+  description: string;
   _img: string;
 }
 
 export interface Activity {
   _id: string | undefined;
   name: string;
-  desc: string;
+  description: string;
   obsv: string;
   _img: string;
   valor: number;
@@ -44,6 +53,7 @@ export interface ScheduleEvent {
   prgm: string;
   date: Date;
   tipoAtv: string;
+  ytLink: string;
   destaque: boolean;
 }
 // Deletar Depois

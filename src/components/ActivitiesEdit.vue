@@ -16,9 +16,9 @@
       counter
       maxlength="248"
       class="q-mb-md"
-      v-model="actv.desc"
-      label="Descrição da Atividade*"
-      hint="Faça uma breve descrição sobre a Atividade"
+      v-model="actv.description"
+      label="descriptionrição da Atividade*"
+      hint="Faça uma breve descriptionrição sobre a Atividade"
       type="textarea"
       autogrow
     />
@@ -130,7 +130,7 @@ export default defineComponent({
       if (this.selectedActv._id) {
         const updatedactv = {
           name: this.actv.name,
-          desc: this.actv.desc,
+          description: this.actv.description,
           obsv: this.actv.obsv,
           _img: `tch_${this.actv._id}.png`,
           valor: this.actv.valor,
@@ -177,7 +177,7 @@ export default defineComponent({
       } else {
         const newactv = {
           name: this.actv.name,
-          desc: this.actv.desc,
+          description: this.actv.description,
           obsv: this.actv.obsv ? this.actv.obsv : '',
           _img: `tch_${this.actv._id}.png`,
           valor: this.actv.valor ? this.actv.valor : 0,

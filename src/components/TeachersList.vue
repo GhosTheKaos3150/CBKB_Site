@@ -14,19 +14,19 @@
           :ratio="$q.platform.is.mobile ? 16 / 9 : 1"
           :width="$q.platform.is.mobile ? '100%' : '20%'"
           class="col-5"
-          :src="`http://localhost:8000/assets/${prof._img}`"
+          :src="`http://0.0.0.0:5000/assets/${prof._img}`"
         />
         <q-card-section style="width: 100%">
           <div class="text-h6">{{ prof.name }}</div>
           <q-separator class="q-my-md" />
-          <div class="text-p">{{ prof.desc }}</div>
+          <div class="text-p">{{ prof.description }}</div>
         </q-card-section>
       </q-card-section>
 
       <q-separator />
 
       <q-card-actions>
-        <q-space />
+        <q-space v-if="!$q.platform.is.mobile" />
         <q-btn
           flat
           round

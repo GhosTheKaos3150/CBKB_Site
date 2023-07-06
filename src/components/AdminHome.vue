@@ -42,6 +42,41 @@
       align="between"
       size="lg"
       color="primary"
+      icon="brush"
+      label="APARÊNCIA DO SITE"
+      style="width: 100%"
+      @click="$router.push('/admin/apearence')"
+    />
+    <br />
+    <q-btn
+      class="q-mb-sm"
+      align="between"
+      size="lg"
+      color="primary"
+      icon="manage_accounts"
+      label="CONFIGURAÇÃO DA CONTA"
+      style="width: 100%"
+      @click="$router.push('/admin/user')"
+    />
+    <br />
+    <div v-if="isAdmin()">
+      <q-btn
+        class="q-mb-sm"
+        align="between"
+        size="lg"
+        color="primary"
+        icon="settings"
+        label="GERENCIAR USUÁRIOS"
+        style="width: 100%"
+        @click="$router.push('/admin/users')"
+      />
+      <br />
+    </div>
+    <q-btn
+      class="q-mb-sm"
+      align="between"
+      size="lg"
+      color="primary"
       icon="logout"
       label="SAIR"
       style="width: 100%"
@@ -74,6 +109,9 @@ export default defineComponent({
     logout() {
       localStorage.token = '';
       this.$router.push({ path: '/login' });
+    },
+    isAdmin() {
+      return localStorage.isAdmin;
     },
   },
 });

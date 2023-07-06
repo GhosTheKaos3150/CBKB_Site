@@ -68,6 +68,7 @@ export default defineComponent({
         .then((json) => {
           localStorage.token = json.token;
           localStorage.currentUser = json.user as User;
+          localStorage.isAdmin = json.isAdmin;
 
           canRedirect = true;
         })

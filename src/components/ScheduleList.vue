@@ -1,8 +1,8 @@
 <template>
   <div class="d-flex row">
     <q-card
-      v-for="actv in activities"
-      :key="actv._id"
+      v-for="schd in schedules"
+      :key="schd._id"
       class="my-card q-mb-md q-mx-sm"
       :class="$q.platform.is.mobile ? 'col-grow' : ''"
       style="width: 49%"
@@ -14,25 +14,32 @@
           :ratio="$q.platform.is.mobile ? 16 / 9 : 1"
           :width="$q.platform.is.mobile ? '100%' : '20%'"
           class="col-5"
-          :src="`http://0.0.0.0:5000/assets/${actv._img}`"
+          :src="`http://0.0.0.0:5000/assets/${schd.atividade._img}`"
         />
         <q-card-section>
-          <div class="text-h6">{{ actv.name }}</div>
+          <div class="text-h6">{{ schd.atividade.name }}</div>
+          <div class="text-italic">Com {{ schd.professor.name }}</div>
+          <div class="text-italic">
+            Dia
+            {{ new Date(schd.date).toLocaleString('pt-BR').slice(0, 10) }} ás
+            {{ new Date(schd.date).toLocaleString('pt-BR').slice(12, 17) }}
+          </div>
           <q-separator class="q-my-md" />
           <div class="text-p">
-            {{ actv.description }}
+            {{ schd.atividade.description }}
           </div>
           <q-separator class="q-my-md" />
           <div class="text-p text-bold q-mb-sm">Outras Informações:</div>
-          <div v-if="actv.obsv" class="text-p">
-            Observação: <span class="text-italic">{{ actv.obsv }}</span>
+          <div v-if="schd.atividade.obsv" class="text-p">
+            Observação:
+            <span class="text-italic">{{ schd.atividade.obsv }}</span>
           </div>
-          <div v-if="actv.isGratuita" class="q-my-sm">
+          <div v-if="schd.atividade.isGratuita" class="q-my-sm">
             <div class="text-p text-italic">Atividade Gratuita</div>
           </div>
           <div v-else class="q-my-sm">
             <div class="text-p text-italic">
-              Valor da Atividade: R$ {{ actv.valor }}
+              Valor da Atividade: R$ {{ schd.atividade.valor }}
             </div>
           </div>
         </q-card-section>
@@ -45,9 +52,16 @@
         <q-btn
           flat
           round
+          icon="visibility"
+          color="primary"
+          @click="$router.push(`/programacao/${schd._id}`)"
+        />
+        <q-btn
+          flat
+          round
           icon="edit"
           color="primary"
-          @click="$emit('selectedActv', actv)"
+          @click="$emit('selectedSchd', schd)"
         />
         <q-btn
           flat
@@ -56,7 +70,7 @@
           color="primary"
           @click="
             dialogDelete = true;
-            deleteId = actv._id!;
+            deleteId = schd._id!;
           "
         />
       </q-card-actions>
@@ -70,14 +84,14 @@
     color="primary"
     icon="add"
     style="width: 100%"
-    @click="$emit('selectedActv', {} as Activity)"
+    @click="$emit('selectedSchd', {} as ScheduleEvent)"
   />
   <q-page-sticky v-else position="bottom-right" :offset="[18, 18]">
     <q-btn
       fab
       icon="add"
       color="primary"
-      @click="$emit('selectedActv', {} as Activity)"
+      @click="$emit('selectedSchd', {} as ScheduleEvent)"
     />
   </q-page-sticky>
 
@@ -114,17 +128,17 @@
 
 <script lang="ts">
 import { PropType, defineComponent } from 'vue';
-import { Activity } from './models';
+import { ScheduleEvent } from './models';
 import { api } from 'src/boot/axios';
 export default defineComponent({
-  name: 'ActivityList',
-  emits: ['selectedActv'],
+  name: 'ScheduleList',
+  emits: ['selectedSchd'],
   props: {
-    activities: {
-      type: Object as PropType<Activity[]>,
+    schedules: {
+      type: Object as PropType<ScheduleEvent[]>,
     },
-    actvSelected: {
-      type: Object as PropType<Activity>,
+    schdSelected: {
+      type: Object as PropType<ScheduleEvent>,
     },
   },
   data: () => {
@@ -141,7 +155,7 @@ export default defineComponent({
       this.$q.loading.show();
 
       await api
-        .delete(`/atividade/${this.deleteId}`, { headers: headers })
+        .delete(`/programacao/${this.deleteId}`, { headers: headers })
         .then((res) => {
           console.log(res);
           this.$router.go(0);

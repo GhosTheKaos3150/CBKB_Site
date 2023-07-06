@@ -1,56 +1,58 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          v-if="$q.platform.is.mobile"
-          @click="toggleLeftDrawer"
-        />
+    <q-header>
+      <q-toolbar v-if="$q.platform.is.mobile">
         <q-space />
-        <q-toolbar-title class="text-center"> CBKB </q-toolbar-title>
+        <q-img
+          src="../assets/cbkb_logo.png"
+          fit="scale-down"
+          height="100px"
+          :ratio="1"
+          @click="$router.push(`/`)"
+        ></q-img>
         <q-space />
-        <!-- <q-btn
-          flat
-          dense
-          round
-          :icon="$q.dark.isActive ? 'light_mode' : 'dark_mode'"
-          @click="toggleDarkMode"
-        ></q-btn> -->
       </q-toolbar>
+
+      <q-toolbar v-else>
+        <q-space />
+        <q-btn-group flat>
+          <!-- <q-btn icon="bi-facebook" /> -->
+          <q-btn
+            icon="bi-instagram"
+            target="_blank"
+            href="https://www.instagram.com/meditaremfortaleza/"
+          />
+          <!-- <q-btn icon="bi-twitter" /> -->
+        </q-btn-group>
+      </q-toolbar>
+
+      <q-toolbar class="" v-if="!$q.platform.is.mobile" insert>
+        <q-space />
+        <q-img
+          src="../assets/cbkb_logo.png"
+          fit="scale-down"
+          height="100px"
+          :ratio="1"
+          @click="$router.push(`/`)"
+        ></q-img>
+        <q-space />
+      </q-toolbar>
+
       <q-toolbar class="vertical-middle" v-if="!$q.platform.is.mobile" insert>
         <q-space />
-        <div v-for="btn in essentialLinks" :key="btn.link">
+        <div v-for="btn in essentialLinks" :key="btn.title">
           <q-btn
             dense
             flat
-            :to="btn.link"
             :icon="btn.icon"
             :label="btn.title"
             class="q-pr-md"
+            @click="scroll(btn.click)"
           />
         </div>
         <q-space />
       </q-toolbar>
     </q-header>
-
-    <q-drawer v-model="leftDrawerOpen" bordered>
-      <q-list>
-        <q-item-label header>
-          Centro Budista<br />Kadampa Bodhisattva
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
 
     <q-page-container>
       <router-view />
@@ -60,36 +62,13 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import EssentialLink from 'components/EssentialLink.vue';
 import { useQuasar } from 'quasar';
+import { scroll } from 'quasar';
 
-const linksList = [
-  {
-    title: 'Programação',
-    caption: 'Confira a Programação do Centro',
-    icon: 'schedule',
-    link: '#',
-  },
-  {
-    title: 'Atividades',
-    caption: 'As Atividades que nosso Centro proporciona',
-    icon: 'self_improvement',
-    link: '#',
-  },
-  {
-    title: 'Professores',
-    caption: 'Conheça nossos queridos Professores',
-    icon: 'person',
-    link: '#',
-  },
-];
+const { getScrollTarget, setVerticalScrollPosition } = scroll;
 
 export default defineComponent({
   name: 'MainLayout',
-
-  components: {
-    EssentialLink,
-  },
 
   setup() {
     const $q = useQuasar();
@@ -98,7 +77,6 @@ export default defineComponent({
     $q.dark.set(localStorage.darkTheme ? localStorage.darkTheme : 'auto');
 
     return {
-      essentialLinks: linksList,
       leftDrawerOpen,
       darkMode: $q.dark.isActive,
       toggleLeftDrawer() {
@@ -109,6 +87,62 @@ export default defineComponent({
         localStorage.darkTheme = $q.dark.isActive;
       },
     };
+  },
+  data() {
+    return {
+      essentialLinks: [
+        {
+          title: 'Sobre Nós',
+          caption: 'Confira a Programação do Centro',
+          icon: 'home',
+          click: 'homeTag',
+        },
+        {
+          title: 'Atividades',
+          caption: 'As Atividades que nosso Centro proporciona',
+          icon: 'self_improvement',
+          click: 'atvsTag',
+        },
+        {
+          title: 'O Centro',
+          caption: 'Conheça nossos Centro de Meditação',
+          icon: 'person',
+          click: 'centerTag',
+        },
+        {
+          title: 'A Tradição',
+          caption: 'Conheça nossos queridos Professores',
+          icon: 'person',
+          click: 'dharmaTag',
+        },
+        {
+          title: 'Geshe-La',
+          caption: 'Conheça nossos querido Guia Espiritual',
+          icon: 'person',
+          click: 'gesheTag',
+        },
+        {
+          title: 'Onde nos Encontrar',
+          caption: 'Venha nos conhecer!',
+          icon: 'map',
+          click: 'findTag',
+        },
+      ],
+    };
+  },
+  methods: {
+    scroll(name: string) {
+      const elemento = document.getElementById(name);
+      if (!elemento) {
+        return;
+      }
+
+      const target = getScrollTarget(elemento);
+      const offset = elemento?.offsetTop;
+      const dur = 1000;
+
+      setVerticalScrollPosition(target, offset, dur);
+    },
   },
 });
 </script>
