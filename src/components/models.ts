@@ -31,6 +31,7 @@ export interface Teacher {
   name: string;
   description: string;
   _img: string;
+  exibir: boolean;
 }
 
 export interface Activity {

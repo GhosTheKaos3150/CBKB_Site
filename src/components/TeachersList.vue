@@ -14,7 +14,7 @@
           :ratio="$q.platform.is.mobile ? 16 / 9 : 1"
           :width="$q.platform.is.mobile ? '100%' : '20%'"
           class="col-5"
-          :src="`http://0.0.0.0:5000/assets/${prof._img}`"
+          :src="`https://api-cbkb.vercel.app/assets/${prof._img}`"
         />
         <q-card-section style="width: 100%">
           <div class="text-h6">{{ prof.name }}</div>

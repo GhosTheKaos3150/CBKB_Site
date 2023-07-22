@@ -14,7 +14,7 @@
           :ratio="$q.platform.is.mobile ? 16 / 9 : 1"
           :width="$q.platform.is.mobile ? '100%' : '20%'"
           class="col-5"
-          :src="`http://0.0.0.0:5000/assets/${actv._img}`"
+          :src="`https://api-cbkb.vercel.app/assets/${actv._img}`"
         />
         <q-card-section>
           <div class="text-h6">{{ actv.name }}</div>

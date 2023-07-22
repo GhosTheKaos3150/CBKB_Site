@@ -78,7 +78,7 @@ export default defineComponent({
         const updatedProf = {
           name: this.prof.name,
           description: this.prof.description,
-          _img: `tch_${this.prof._id}.png`,
+          _img: this.file ? this.file?.name : 'logo.png',
         };
         const headers = {
           Authorization: 'Bearer ' + localStorage.token,
@@ -88,7 +88,7 @@ export default defineComponent({
         if (this.file) {
           formData.append(this.file.name, this.file);
           await api
-            .post(`/upload/tch_${this.prof._id}.png`, formData, {
+            .post(`/upload/${this.file?.name}`, formData, {
               headers: { 'Content-Type': 'multipart/form-data' },
             })
             .then((res) => {
@@ -124,7 +124,8 @@ export default defineComponent({
         const newProf = {
           name: this.prof.name,
           description: this.prof.description,
-          _img: `tch_${this.prof._id}.png`,
+          _img: this.file ? this.file?.name : 'logo.png',
+          exibir: false,
         };
         const headers = {
           Authorization: 'Bearer ' + localStorage.token,
@@ -134,7 +135,7 @@ export default defineComponent({
         if (this.file) {
           formData.append(this.file.name, this.file);
           await api
-            .post(`/upload/tch_${this.prof._id}.png`, formData, {
+            .post(`/upload/${this.file?.name}`, formData, {
               headers: { 'Content-Type': 'multipart/form-data' },
             })
             .then((res) => {

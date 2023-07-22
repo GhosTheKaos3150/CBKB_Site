@@ -1,7 +1,7 @@
 <template>
   <q-page class="items-start">
     <q-img
-      src="http://127.0.0.1:5000/assets/header1.png"
+      src="https://api-cbkb.vercel.app/assets/header1.png"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
     >
@@ -17,8 +17,8 @@
       class="justify-center"
       :style="
         $q.platform.is.mobile
-          ? 'background-color: #3f3f41; color: white; padding: 2% 10%'
-          : 'background-color: #3f3f41; color: white; padding: 2% 25%'
+          ? 'background-color: #3f3f41; color: #ffffff; padding: 2% 10%'
+          : 'background-color: #3f3f41; color: #ffffff; padding: 2% 25%'
       "
     >
       <div id="homeTag" class="text-h5 text-center text-bold q-mb-md">
@@ -72,8 +72,8 @@
       class="justify-center"
       :style="
         $q.platform.is.mobile
-          ? 'background-color: #e6e6e6; padding: 2% 10%'
-          : 'background-color: #e6e6e6; padding: 2% 25%'
+          ? 'background-color: #e6e6e6; color: #000000; padding: 2% 10%'
+          : 'background-color: #e6e6e6; color: #000000; padding: 2% 25%'
       "
     >
       <div id="atvsTag" class="text-h5 text-center text-bold q-mb-md">
@@ -95,7 +95,7 @@
           v-for="evento in destaques"
           :key="evento._id"
           :name="evento.atividade.name.toLowerCase().replace(' ', '_')"
-          :img-src="`http://127.0.0.1:5000/assets/${evento.atividade._img}`"
+          :img-src="`https://api-cbkb.vercel.app/assets/${evento.atividade._img}`"
           class="column flex-center"
           style="color: black"
           @click="$router.push(`/programacao/${evento._id}`)"
@@ -133,7 +133,7 @@
             @click="$router.push(`/programacao/${evento._id}`)"
           >
             <q-img
-              :src="`http://127.0.0.1:5000/assets/${evento.atividade._img}`"
+              :src="`https://api-cbkb.vercel.app/assets/${evento.atividade._img}`"
               ratio="1"
             >
               <div class="absolute-top-left text-subtitle2">
@@ -170,7 +170,7 @@
     </div>
     <q-img
       id="centerTag"
-      src="http://127.0.0.1:5000/assets/header2.png"
+      src="https://api-cbkb.vercel.app/assets/header2.png"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
     >
@@ -185,8 +185,8 @@
       class="justify-center"
       :style="
         $q.platform.is.mobile
-          ? 'background-color: #e6e6e6; padding: 2% 10%'
-          : 'background-color: #e6e6e6; padding: 2% 25%'
+          ? 'background-color: #e6e6e6; color: #000000; padding: 2% 10%'
+          : 'background-color: #e6e6e6; color: #000000; padding: 2% 25%'
       "
     >
       <div
@@ -220,7 +220,7 @@
             :style="$q.platform.is.mobile ? 'width: 75vw' : 'width: 250px'"
           >
             <q-img
-              :src="`http://127.0.0.1:5000/assets/${atividade._img}`"
+              :src="`https://api-cbkb.vercel.app/assets/${atividade._img}`"
               ratio="1"
               fit="contain"
               class=""
@@ -249,7 +249,7 @@
     </div>
     <q-img
       id="dharmaTag"
-      src="http://127.0.0.1:5000/assets/header3.png"
+      src="https://api-cbkb.vercel.app/assets/header3.png"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
     >
@@ -264,8 +264,8 @@
       class="justify-center"
       :style="
         $q.platform.is.mobile
-          ? 'background-color: #e6e6e6; padding: 2% 10%'
-          : 'background-color: #e6e6e6; padding: 2% 25%'
+          ? 'background-color: #e6e6e6; color: #000000; padding: 2% 10%'
+          : 'background-color: #e6e6e6; color: #000000; padding: 2% 25%'
       "
     >
       <div
@@ -300,9 +300,8 @@
             :style="$q.platform.is.mobile ? 'width: 75vw' : 'width: 250px'"
           >
             <q-img
-              :src="`http://127.0.0.1:5000/assets/${prof._img}`"
+              :src="`https://api-cbkb.vercel.app/assets/${prof._img}`"
               ratio="1"
-              fit="contain"
               class=""
               style="border-radius: 100%"
             />
@@ -320,7 +319,7 @@
     </div>
     <q-img
       id="gesheTag"
-      src="http://127.0.0.1:5000/assets/header4.png"
+      src="https://api-cbkb.vercel.app/assets/header4.png"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
     >
@@ -335,33 +334,32 @@
       class="justify-center"
       :style="
         $q.platform.is.mobile
-          ? 'background-color: #3f3f41; color: white;  padding: 2% 10%'
-          : 'background-color: #3f3f41; color: white;  padding: 2% 25%'
+          ? 'background-color: #3f3f41; color: #ffffff;  padding: 2% 10%'
+          : 'background-color: #3f3f41; color: #ffffff;  padding: 2% 25%'
       "
     >
       <div
         class="q-mt-md text-center text-subtitle1"
         style="padding: 2% 2% 0% 0%"
       >
-        O Budismo Kadampa é uma tradição especial do Budismo Mahayana fundada
-        por Atisha (982 – 1054), um mestre budista indiano, responsável em
-        grande parte pela reintrodução do budismo no Tibete no século XI. “Ka”
-        refere-se a todos os ensinamentos de Sutra e de Tantra transmitidos por
-        Buda, e “dam” refere-se às instruções especiais de Atisha conhecidas
-        como “Etapas do Caminho”, ou Lamrim, em tibetano. A Nova Tradição
-        Kadampa – União Budista Kadampa Internacional (NTK – UBKI) é uma
-        associação internacional de Centros de estudos e meditação do budismo
-        mahayana, que segue a tradição budista Kadampa fundada pelo Venerável
-        Geshe Kelsang Gyatso. A NTK é uma tradição budista legal e inteiramente
-        independente – registrada de acordo com a lei inglesa – e não tem
-        afiliações políticas. O seu propósito é preservar e promover a essência
-        dos ensinamentos de Buda, de uma forma que seja adequada ao estilo de
-        vida do mundo moderno.
+        O fundador da Nova Tradição Kadampa – União Budista Kadampa
+        Internacional. Venerável Geshe Kelsang Gyatso Rinpoche é um renomado
+        mestre de meditação e detentor da Linhagem Oral Ganden do Mahamudra. é
+        também um dos pioneiros na introdução do Budismo moderno na sociedade
+        contemporânea. Deu milhares de ensinamentos, escreveu mais de vinte
+        livros sobre Budismo e Meditação, criou mais de 1.200 centros de
+        meditação em todo o mundo, treinou centenas de qualificados professores
+        de meditação e desenvolveu programas práticos de estudo e meditação
+        concebidos para o mundo moderno. Geshe-la – como é carinhosamente
+        chamado por seus discípulos – é um erudito altamente considerado e um
+        praticante do Budismo Kadampa plenamente realizado. Seus ensinamentos e
+        conselhos transmitem perfeitamente para o nosso mundo moderno a antiga
+        sabedoria do Budismo.
       </div>
     </div>
     <q-img
       id="findTag"
-      src="http://127.0.0.1:5000/assets/header5.png"
+      src="https://api-cbkb.vercel.app/assets/header5.png"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
     />
@@ -370,8 +368,8 @@
       :class="$q.platform.is.mobile ? '' : 'row'"
       :style="
         $q.platform.is.mobile
-          ? 'background-color: #3f3f41; color: white;  padding: 2% 10%'
-          : 'background-color: #3f3f41; color: white;  padding: 2% 25%'
+          ? 'background-color: #3f3f41; color: #ffffff;  padding: 2% 10%'
+          : 'background-color: #3f3f41; color: #ffffff;  padding: 2% 25%'
       "
     >
       <div :class="$q.platform.is.mobile ? '' : 'col'">
@@ -445,7 +443,7 @@ export default defineComponent({
             'principais ensinamentos Budistas, que são conselhos práticos para a nossa vida moderna. ' +
             'Se praticados de maneira sincera, esses ensinamentos nos ajudarão a solucionar todos os nossos ' +
             'problemas diários, como a raiva, o apego, o ciúme, a inveja e, em particular, nossa ignorância.',
-          _img: 'http://127.0.0.1:5000/assets/act1.png',
+          _img: 'https://api-cbkb.vercel.app/assets/act1.png',
         },
         {
           id: 2,
@@ -455,7 +453,7 @@ export default defineComponent({
             'origem, fé ou prática religiosa. Não é preciso ter experiência prévia, nem ser budista. ' +
             'Basta nos sentarmos confortavelmente e acompanhar as instruções do livro Novo Manual de Meditação. ' +
             'No final, somos convidados a aplicar os aspectos dos ensinamentos que mais forem úteis para o nosso próprio bem-estar mental.',
-          _img: 'http://127.0.0.1:5000/assets/act2.png',
+          _img: 'https://api-cbkb.vercel.app/assets/act2.png',
         },
         {
           id: 3,
@@ -465,7 +463,7 @@ export default defineComponent({
             'purificarmos nosso carma negativo e acumularmos virtude. ' +
             'Nesses encontros fazemos oferendas e seguimos uma Sadhana (livreto em português), com as preces, ' +
             'para gerarmos estados mentais positivos e virtuosos.',
-          _img: 'http://127.0.0.1:5000/assets/act3.png',
+          _img: 'https://api-cbkb.vercel.app/assets/act3.png',
         },
       ],
     };

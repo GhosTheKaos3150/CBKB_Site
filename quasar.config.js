@@ -102,7 +102,7 @@ module.exports = configure(function (ctx) {
       // directives: [],
 
       // Quasar plugins
-      plugins: ['Notify', 'Loading', ''],
+      plugins: ['Notify', 'Loading'],
     },
 
     // animations: 'all', // --- includes all animations
@@ -140,8 +140,8 @@ module.exports = configure(function (ctx) {
       // chainWebpackCustomSW (/* chain */) {},
 
       manifest: {
-        name: 'Site CBKB',
-        short_name: 'Site CBKB',
+        name: 'Site Centro Kadampa Bodhisattva',
+        short_name: 'Centro Kadampa Bodhisattva',
         description: '',
         display: 'standalone',
         orientation: 'portrait',

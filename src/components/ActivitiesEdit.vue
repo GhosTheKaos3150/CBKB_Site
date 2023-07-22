@@ -132,7 +132,7 @@ export default defineComponent({
           name: this.actv.name,
           description: this.actv.description,
           obsv: this.actv.obsv,
-          _img: `tch_${this.actv._id}.png`,
+          _img: this.file ? this.file?.name : 'logo.png',
           valor: this.actv.valor,
           isGratuita: this.actv.isGratuita,
           hasProgram: this.hasProgram.value,
@@ -146,7 +146,7 @@ export default defineComponent({
         if (this.file) {
           formData.append(this.file.name, this.file);
           await api
-            .post(`/upload/tch_${this.actv._id}.png`, formData, {
+            .post(`/upload/${this.file?.name}`, formData, {
               headers: { 'Content-Type': 'multipart/form-data' },
             })
             .then((res) => {
@@ -179,7 +179,7 @@ export default defineComponent({
           name: this.actv.name,
           description: this.actv.description,
           obsv: this.actv.obsv ? this.actv.obsv : '',
-          _img: `tch_${this.actv._id}.png`,
+          _img: this.file ? this.file?.name : 'logo.png',
           valor: this.actv.valor ? this.actv.valor : 0,
           isGratuita: this.actv.isGratuita,
           hasProgram: this.hasProgram.value,
@@ -193,7 +193,7 @@ export default defineComponent({
         if (this.file) {
           formData.append(this.file.name, this.file);
           await api
-            .post(`/upload/tch_${this.actv._id}.png`, formData, {
+            .post(`/upload/${this.file?.name}`, formData, {
               headers: { 'Content-Type': 'multipart/form-data' },
             })
             .then((res) => {

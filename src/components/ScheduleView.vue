@@ -4,7 +4,7 @@
     :style="$q.platform.is.mobile ? 'padding: 2% 10%' : 'padding: 2% 25%'"
   >
     <q-img
-      :src="`http://0.0.0.0:5000/assets/${evento!.atividade!._img}`"
+      :src="`https://api-cbkb.vercel.app/assets/${evento!.atividade!._img}`"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 1 : 16 / 9"
     >
