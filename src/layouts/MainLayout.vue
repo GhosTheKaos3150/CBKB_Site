@@ -62,7 +62,6 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { useQuasar } from 'quasar';
 import { scroll } from 'quasar';
 
 const { getScrollTarget, setVerticalScrollPosition } = scroll;
@@ -71,20 +70,12 @@ export default defineComponent({
   name: 'MainLayout',
 
   setup() {
-    const $q = useQuasar();
     const leftDrawerOpen = ref(false);
-
-    $q.dark.set(localStorage.darkTheme ? localStorage.darkTheme : 'auto');
 
     return {
       leftDrawerOpen,
-      darkMode: $q.dark.isActive,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
-      toggleDarkMode() {
-        $q.dark.toggle();
-        localStorage.darkTheme = $q.dark.isActive;
       },
     };
   },

@@ -10,11 +10,20 @@
     >
       <q-card-section :horizontal="!$q.platform.is.mobile">
         <q-img
+          v-if="schd.imgSpc"
           fit="cover"
           :ratio="$q.platform.is.mobile ? 16 / 9 : 1"
           :width="$q.platform.is.mobile ? '100%' : '20%'"
           class="col-5"
-          :src="`https://api-cbkb.vercel.app/assets/${schd.atividade._img}`"
+          :src="require(`../assets/${schd.imgSpc}`)"
+        />
+        <q-img
+          v-else
+          fit="cover"
+          :ratio="$q.platform.is.mobile ? 16 / 9 : 1"
+          :width="$q.platform.is.mobile ? '100%' : '20%'"
+          class="col-5"
+          :src="require(`../assets/${schd!.atividade!._img}`)"
         />
         <q-card-section>
           <div class="text-h6">{{ schd.atividade.name }}</div>
@@ -25,8 +34,20 @@
             {{ new Date(schd.date).toLocaleString('pt-BR').slice(12, 17) }}
           </div>
           <q-separator class="q-my-md" />
-          <div class="text-p">
-            {{ schd.atividade.description }}
+          <div
+            style="
+              white-space: pre-line;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              max-height: 100px;
+            "
+            class="text-p"
+          >
+            {{
+              schd.descricaoSpc
+                ? schd.descricaoSpc.slice(0, 200) + '...'
+                : schd.atividade.description.slice(0, 200) + '...'
+            }}
           </div>
           <q-separator class="q-my-md" />
           <div class="text-p text-bold q-mb-sm">Outras Informações:</div>

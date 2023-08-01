@@ -55,6 +55,8 @@ export interface ScheduleEvent {
   prgm: string;
   date: Date;
   tipoAtv: string;
+  descricaoSpc: string;
+  imgSpc: string;
   ytLink: string;
   destaque: boolean;
 }

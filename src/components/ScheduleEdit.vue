@@ -60,9 +60,10 @@
         counter
         maxlength="248"
         class="q-mb-md"
-        v-model="selectedAtv.value.desc"
+        v-model="selectedAtv.value.description"
         label="Descrição da Atividade*"
         type="textarea"
+        disable
         autogrow
       />
       <q-input
@@ -73,17 +74,44 @@
         v-model="selectedAtv.value.obsv"
         label="Observação"
         type="textarea"
+        disable
+        autogrow
+      />
+      <q-input
+        filled
+        counter
+        maxlength="1000"
+        class="q-mb-md"
+        v-model="schd.descricaoSpc"
+        label="Descrição do Evento*"
+        type="textarea"
         autogrow
       />
       <q-input
         v-if="selectedAtv.value.hasProgram"
         filled
         counter
+        maxlength="500"
         class="q-mb-md"
         v-model="schd.prgm"
         label="Programação"
         type="textarea"
         autogrow
+      />
+      <q-input
+        filled
+        class="q-mb-md"
+        v-model="schd.ytLink"
+        label="Link de Vídeo (Youtube)"
+        type="text"
+      />
+      <q-input
+        filled
+        class="q-mb-md"
+        v-model="schd.imgSpc"
+        label="Imagem do Evento (Nome do Arquivo)"
+        type="text"
+        hint="Recomenda-se arquivos .PNG para melhor resolução!"
       />
       <div class="q-mb-md" :class="!$q.platform.is.mobile ? 'row' : ''">
         <div :class="!$q.platform.is.mobile ? 'col' : ''">
@@ -226,7 +254,9 @@ export default defineComponent({
         atv_id: this.selectedAtv?.value._id,
         prf_id: this.selectedPrf?.value._id,
         tema: this.schd.tema ? this.schd.tema : '',
+        descricaoSpc: this.schd.descricaoSpc ? this.schd.descricaoSpc : '',
         prgm: this.schd.prgm ? this.schd.prgm : '',
+        imgSpc: this.schd.imgSpc ? this.schd.imgSpc : '',
         date: `${this.date}T${this.time}`,
         tipoAtv: this.schd.tipoAtv,
         ytLink: this.schd.ytLink,

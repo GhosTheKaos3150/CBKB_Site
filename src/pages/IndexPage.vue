@@ -44,7 +44,7 @@
           :key="stc.id"
         >
           <q-img
-            :src="stc._img"
+            :src="require(`../assets/${stc._img}`)"
             fit="cover"
             ratio="1"
             :width="$q.platform.is.mobile ? '85%' : '50%'"
@@ -95,7 +95,11 @@
           v-for="evento in destaques"
           :key="evento._id"
           :name="evento.atividade.name.toLowerCase().replace(' ', '_')"
-          :img-src="require(`../assets/${evento.atividade._img}`)"
+          :img-src="
+            evento.imgSpc
+              ? require(`../assets/${evento.imgSpc}`)
+              : require(`../assets/${evento.atividade._img}`)
+          "
           class="column flex-center"
           style="color: black"
           @click="$router.push(`/programacao/${evento._id}`)"
@@ -133,7 +137,11 @@
             @click="$router.push(`/programacao/${evento._id}`)"
           >
             <q-img
-              :src="require(`../assets/${evento.atividade._img}`)"
+              :src="
+                evento.imgSpc
+                  ? require(`../assets/${evento.imgSpc}`)
+                  : require(`../assets/${evento.atividade._img}`)
+              "
               ratio="1"
             >
               <div class="absolute-top-left text-subtitle2">
@@ -152,7 +160,11 @@
                 {{ evento.atividade.name }}
               </div>
               <div class="text-subtitle2 q-mb-md">
-                {{ evento.atividade.description }}
+                {{
+                  evento.descricaoSpc
+                    ? evento.descricaoSpc.slice(0, 256) + '...'
+                    : evento.atividade.description.slice(0, 256) + '...'
+                }}
               </div>
               <div
                 v-if="evento.atividade.isGratuita"
@@ -443,7 +455,7 @@ export default defineComponent({
             'principais ensinamentos Budistas, que são conselhos práticos para a nossa vida moderna. ' +
             'Se praticados de maneira sincera, esses ensinamentos nos ajudarão a solucionar todos os nossos ' +
             'problemas diários, como a raiva, o apego, o ciúme, a inveja e, em particular, nossa ignorância.',
-          _img: 'https://api-cbkb.vercel.app/assets/act1.png',
+          _img: 'stc1.png',
         },
         {
           id: 2,
@@ -453,7 +465,7 @@ export default defineComponent({
             'origem, fé ou prática religiosa. Não é preciso ter experiência prévia, nem ser budista. ' +
             'Basta nos sentarmos confortavelmente e acompanhar as instruções do livro Novo Manual de Meditação. ' +
             'No final, somos convidados a aplicar os aspectos dos ensinamentos que mais forem úteis para o nosso próprio bem-estar mental.',
-          _img: 'https://api-cbkb.vercel.app/assets/act2.png',
+          _img: 'stc2.png',
         },
         {
           id: 3,
@@ -463,14 +475,12 @@ export default defineComponent({
             'purificarmos nosso carma negativo e acumularmos virtude. ' +
             'Nesses encontros fazemos oferendas e seguimos uma Sadhana (livreto em português), com as preces, ' +
             'para gerarmos estados mentais positivos e virtuosos.',
-          _img: 'https://api-cbkb.vercel.app/assets/act3.png',
+          _img: 'stc3.png',
         },
       ],
     };
   },
   async mounted() {
-    this.$q.dark.set(false);
-
     await api
       .get('/programacao')
       .then((res) => {
