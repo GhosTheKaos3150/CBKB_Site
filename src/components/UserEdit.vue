@@ -1,4 +1,5 @@
 <template>
+  <q-btn icon="bi-arrow-left q-my-md" @click="$router.go(-1)" flat />
   <div>
     <div class="text-h6 q-ma-sm">EDITAR DADOS DA ATIVIDADE</div>
     <q-input

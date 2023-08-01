@@ -1,8 +1,10 @@
 <template>
-  <div class="text-h6 q-ma-sm">EDITAR APARÊNCIA DO SITE</div>
+  <q-btn icon="bi-arrow-left" @click="$router.go(-1)" flat />
+  <div class="text-h6 q-ma-sm">VERIFICAR APARÊNCIA DO SITE</div>
   <div class="text-h6 q-ma-sm">HEADER 1 - TODOS OS SERES SÃO BEM VINDOS!</div>
+  <div class="q-my-md"></div>
   <q-img
-    src="https://api-cbkb.vercel.app/assets/header1.png"
+    src="../../public/banners/header1.png"
     fit="cover"
     :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
   >
@@ -14,22 +16,11 @@
       TODOS OS SERES SÃO BEM VINDOS!
     </div>
   </q-img>
-  <div class="row q-my-md">
-    <q-file
-      class="col-2"
-      counter
-      v-model="file1"
-      label="Selecione uma Imagem"
-      accept=".png, image/*"
-    />
-    <q-space />
-    <q-btn color="primary" label="Enviar" @click="sendFile1()" />
-  </div>
 
   <div class="text-h6 q-ma-sm">HEADER 2 - CENTRO</div>
   <q-img
     id="centerTag"
-    src="https://api-cbkb.vercel.app/assets/header2.png"
+    src="../../public/banners/header2.png"
     fit="cover"
     :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
   >
@@ -40,22 +31,11 @@
       O CENTRO
     </div>
   </q-img>
-  <div class="row q-my-md">
-    <q-file
-      class="col-2"
-      counter
-      v-model="file2"
-      label="Selecione uma Imagem"
-      accept=".png, image/*"
-    />
-    <q-space />
-    <q-btn color="primary" label="Enviar" @click="sendFile2()" />
-  </div>
 
   <div class="text-h6 q-ma-sm">HEADER 3 - A TRADIÇÃO</div>
   <q-img
     id="dharmaTag"
-    src="https://api-cbkb.vercel.app/assets/header3.png"
+    src="../../public/banners/header3.png"
     fit="cover"
     :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
   >
@@ -66,22 +46,11 @@
       A TRADIÇÃO
     </div>
   </q-img>
-  <div class="row q-my-md">
-    <q-file
-      class="col-2"
-      counter
-      v-model="file3"
-      label="Selecione uma Imagem"
-      accept=".png, image/*"
-    />
-    <q-space />
-    <q-btn color="primary" label="Enviar" @click="sendFile3()" />
-  </div>
 
   <div class="text-h6 q-ma-sm">HEADER 4 - GESHE-LA</div>
   <q-img
     id="gesheTag"
-    src="https://api-cbkb.vercel.app/assets/header4.png"
+    src="../../public/banners/header4.png"
     fit="cover"
     :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
   >
@@ -92,36 +61,14 @@
       GESHE-LA
     </div>
   </q-img>
-  <div class="row q-my-md">
-    <q-file
-      class="col-2"
-      counter
-      v-model="file4"
-      label="Selecione uma Imagem"
-      accept=".png, image/*"
-    />
-    <q-space />
-    <q-btn color="primary" label="Enviar" @click="sendFile4()" />
-  </div>
 
   <div class="text-h6 q-ma-sm">HEADER 5 - FINAL</div>
   <q-img
     id="findTag"
-    src="https://api-cbkb.vercel.app/assets/header5.png"
+    src="../../public/banners/header5.png"
     fit="cover"
     :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
   />
-  <div class="row q-my-md">
-    <q-file
-      class="col-2"
-      counter
-      v-model="file5"
-      label="Selecione uma Imagem"
-      accept=".png, image/*"
-    />
-    <q-space />
-    <q-btn color="primary" label="Enviar" @click="sendFile5()" />
-  </div>
 </template>
 <script lang="ts">
 import { defineComponent, ref } from 'vue';

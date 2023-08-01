@@ -1,7 +1,7 @@
 <template>
   <q-page class="items-start">
     <q-img
-      src="../assets/banners/header1.png"
+      src="../../public/banners/header1.png"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
     >
@@ -44,7 +44,7 @@
           :key="stc.id"
         >
           <q-img
-            :src="require(`../assets/${stc._img}`)"
+            :src="require(`../../public/assets/${stc._img}`)"
             fit="cover"
             ratio="1"
             :width="$q.platform.is.mobile ? '85%' : '50%'"
@@ -97,8 +97,8 @@
           :name="evento.atividade.name.toLowerCase().replace(' ', '_')"
           :img-src="
             evento.imgSpc
-              ? require(`../assets/${evento.imgSpc}`)
-              : require(`../assets/${evento.atividade._img}`)
+              ? require(`../../public/assets/${evento.imgSpc}`)
+              : require(`../../public/assets/${evento.atividade._img}`)
           "
           class="column flex-center"
           style="color: black"
@@ -139,8 +139,8 @@
             <q-img
               :src="
                 evento.imgSpc
-                  ? require(`../assets/${evento.imgSpc}`)
-                  : require(`../assets/${evento.atividade._img}`)
+                  ? require(`../../public/assets/${evento.imgSpc}`)
+                  : require(`../../public/assets/${evento.atividade._img}`)
               "
               ratio="1"
             >
@@ -182,7 +182,7 @@
     </div>
     <q-img
       id="centerTag"
-      src="../assets/banners/header2.png"
+      src="../../public/banners/header2.png"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
     >
@@ -232,7 +232,7 @@
             :style="$q.platform.is.mobile ? 'width: 75vw' : 'width: 250px'"
           >
             <q-img
-              :src="require(`../assets/${atividade._img}`)"
+              :src="require(`../../public/assets/${atividade._img}`)"
               ratio="1"
               fit="contain"
               class=""
@@ -261,7 +261,7 @@
     </div>
     <q-img
       id="dharmaTag"
-      src="../assets/banners/header3.png"
+      src="../../public/banners/header3.png"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
     >
@@ -312,7 +312,7 @@
             :style="$q.platform.is.mobile ? 'width: 75vw' : 'width: 250px'"
           >
             <q-img
-              :src="require(`../assets/${prof._img}`)"
+              :src="require(`../../public/assets/${prof._img}`)"
               ratio="1"
               class=""
               style="border-radius: 100%"
@@ -331,7 +331,7 @@
     </div>
     <q-img
       id="gesheTag"
-      src="../assets/banners/header4.png"
+      src="../../public/banners/header4.png"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
     >
@@ -371,7 +371,7 @@
     </div>
     <q-img
       id="findTag"
-      src="../assets/banners/header5.png"
+      src="../../public/banners/header5.png"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
     />

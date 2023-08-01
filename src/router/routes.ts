@@ -9,13 +9,13 @@ const routes: RouteRecordRaw[] = [
 
   {
     path: '/login',
-    component: () => import('layouts/MainLayout.vue'),
+    component: () => import('layouts/AdminLayout.vue'),
     children: [{ path: '', component: () => import('pages/LoginPage.vue') }],
   },
 
   {
     path: '/admin',
-    component: () => import('layouts/MainLayout.vue'),
+    component: () => import('layouts/AdminLayout.vue'),
     children: [
       { path: '', component: () => import('pages/AdminPage.vue') },
       {
@@ -43,7 +43,7 @@ const routes: RouteRecordRaw[] = [
 
   {
     path: '/programacao/:id',
-    component: () => import('layouts/MainLayout.vue'),
+    component: () => import('layouts/AdminLayout.vue'),
     children: [
       { path: '', component: () => import('pages/ScheduleViewPage.vue') },
     ],

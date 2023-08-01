@@ -1,6 +1,14 @@
 <template>
   <q-page padding>
-    <div class="text-h5 q-mb-md">ATIVIDADES DO CENTRO</div>
+    <div class="text-h5 q-ma-sm">
+      <q-btn
+        icon="bi-arrow-left q-my-md"
+        v-if="!activitySelected"
+        @click="$router.go(-1)"
+        flat
+      />
+      ATIVIDADES DO CENTRO
+    </div>
     <ActivitiesList
       v-if="!activitySelected"
       :activities="activities"

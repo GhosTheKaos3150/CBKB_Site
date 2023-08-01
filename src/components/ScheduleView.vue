@@ -3,9 +3,10 @@
     v-if="evento.atividade"
     :style="$q.platform.is.mobile ? 'padding: 2% 10%' : 'padding: 2% 25%'"
   >
+    <q-btn icon="bi-arrow-left q-my-md" @click="$router.go(-1)" flat />
     <q-img
       v-if="evento.imgSpc"
-      :src="require(`../assets/${evento.imgSpc}`)"
+      :src="require(`../../public/assets/${evento.imgSpc}`)"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 1 : 16 / 9"
     >
@@ -26,7 +27,7 @@
     </q-img>
     <q-img
       v-else
-      :src="require(`../assets/${evento!.atividade!._img}`)"
+      :src="require(`../../public/assets/${evento!.atividade!._img}`)"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 1 : 16 / 9"
     >

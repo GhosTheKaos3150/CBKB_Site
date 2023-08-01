@@ -15,7 +15,7 @@
           :ratio="$q.platform.is.mobile ? 16 / 9 : 1"
           :width="$q.platform.is.mobile ? '100%' : '20%'"
           class="col-5"
-          :src="require(`../assets/${schd.imgSpc}`)"
+          :src="require(`../../public/assets/${schd.imgSpc}`)"
         />
         <q-img
           v-else
@@ -23,7 +23,7 @@
           :ratio="$q.platform.is.mobile ? 16 / 9 : 1"
           :width="$q.platform.is.mobile ? '100%' : '20%'"
           class="col-5"
-          :src="require(`../assets/${schd!.atividade!._img}`)"
+          :src="require(`../../public/assets/${schd!.atividade!._img}`)"
         />
         <q-card-section>
           <div class="text-h6">{{ schd.atividade.name }}</div>
@@ -69,7 +69,6 @@
       <q-separator />
 
       <q-card-actions>
-        <q-space v-if="!$q.platform.is.mobile" />
         <q-btn
           flat
           round
@@ -97,17 +96,7 @@
       </q-card-actions>
     </q-card>
   </div>
-  <q-btn
-    v-if="!$q.platform.is.mobile"
-    class="q-mb-sm'"
-    align="center"
-    size="lg"
-    color="primary"
-    icon="add"
-    style="width: 100%"
-    @click="$emit('selectedSchd', {} as ScheduleEvent)"
-  />
-  <q-page-sticky v-else position="bottom-right" :offset="[18, 18]">
+  <q-page-sticky position="bottom-right" :offset="[18, 18]">
     <q-btn
       fab
       icon="add"

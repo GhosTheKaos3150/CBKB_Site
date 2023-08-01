@@ -1,6 +1,14 @@
 <template>
   <q-page padding>
-    <div class="text-h5 q-mb-md">PROGRAMAÇÃO DO CENTRO</div>
+    <div class="text-h5 q-ma-sm">
+      <q-btn
+        icon="bi-arrow-left q-my-md"
+        v-if="!scheduleSelected"
+        @click="$router.go(-1)"
+        flat
+      />
+      PROGRAMAÇÃO DO CENTRO
+    </div>
     <ScheduleList
       v-if="!scheduleSelected"
       :schedules="schedules"

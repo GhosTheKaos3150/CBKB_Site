@@ -1,6 +1,14 @@
 <template>
   <q-page padding>
-    <div class="text-h5 q-ma-sm">PROFESSORES DO CENTRO</div>
+    <div class="text-h5 q-ma-sm">
+      <q-btn
+        icon="bi-arrow-left q-my-md"
+        v-if="!selectedProf"
+        @click="$router.go(-1)"
+        flat
+      />
+      PROFESSORES DO CENTRO
+    </div>
     <div v-if="!selectedProf">
       <TeachersList
         :profes="profs"

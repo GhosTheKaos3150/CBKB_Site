@@ -8,6 +8,7 @@
           fit="scale-down"
           height="100px"
           :ratio="1"
+          class="q-my-md"
           @click="$router.push(`/`)"
         ></q-img>
         <q-space />
@@ -33,6 +34,7 @@
           fit="scale-down"
           height="100px"
           :ratio="1"
+          class="q-mb-md"
           @click="$router.push(`/`)"
         ></q-img>
         <q-space />
