@@ -95,7 +95,7 @@
           v-for="evento in destaques"
           :key="evento._id"
           :name="evento.atividade.name.toLowerCase().replace(' ', '_')"
-          :img-src="`https://api-cbkb.vercel.app/assets/${evento.atividade._img}`"
+          :img-src="require(`../assets/${evento.atividade._img}`)"
           class="column flex-center"
           style="color: black"
           @click="$router.push(`/programacao/${evento._id}`)"
@@ -133,7 +133,7 @@
             @click="$router.push(`/programacao/${evento._id}`)"
           >
             <q-img
-              :src="`https://api-cbkb.vercel.app/assets/${evento.atividade._img}`"
+              :src="require(`../assets/${evento.atividade._img}`)"
               ratio="1"
             >
               <div class="absolute-top-left text-subtitle2">
@@ -220,7 +220,7 @@
             :style="$q.platform.is.mobile ? 'width: 75vw' : 'width: 250px'"
           >
             <q-img
-              :src="`https://api-cbkb.vercel.app/assets/${atividade._img}`"
+              :src="require(`../assets/${atividade._img}`)"
               ratio="1"
               fit="contain"
               class=""
@@ -300,7 +300,7 @@
             :style="$q.platform.is.mobile ? 'width: 75vw' : 'width: 250px'"
           >
             <q-img
-              :src="`https://api-cbkb.vercel.app/assets/${prof._img}`"
+              :src="require(`../assets/${prof._img}`)"
               ratio="1"
               class=""
               style="border-radius: 100%"
@@ -359,7 +359,7 @@
     </div>
     <q-img
       id="findTag"
-      src="../assets/banners//header5.png"
+      src="../assets/banners/header5.png"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
     />
@@ -389,11 +389,11 @@
           href="https://www.instagram.com/meditaremfortaleza/"
         />
       </div>
-      <div :class="$q.platform.is.mobile ? '' : 'col'">
+      <div class="q-mt-md" :class="$q.platform.is.mobile ? '' : 'col'">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.3574791496853!2d-38.5097065886191!3d-3.7320256431766548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c7485ef8375acb%3A0x5dca009be89beaa5!2sCentro%20Budista%20Kadampa%20Bodhisattva!5e0!3m2!1spt-BR!2sbr!4v1686149403593!5m2!1spt-BR!2sbr"
-          width="600"
-          height="450"
+          :width="$q.platform.is.mobile ? '100%' : '600px'"
+          :height="$q.platform.is.mobile ? '300px' : '450px'"
           style="border: 0"
           allowfullscreen="true"
           loading="lazy"
@@ -469,6 +469,8 @@ export default defineComponent({
     };
   },
   async mounted() {
+    this.$q.dark.set(false);
+
     await api
       .get('/programacao')
       .then((res) => {

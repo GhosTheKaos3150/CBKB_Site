@@ -17,7 +17,7 @@
       maxlength="248"
       class="q-mb-md"
       v-model="actv.description"
-      label="descriptionrição da Atividade*"
+      label="Descrição da Atividade*"
       hint="Faça uma breve descriptionrição sobre a Atividade"
       type="textarea"
       autogrow
@@ -60,12 +60,13 @@
       />
     </div>
     <div class="row q-mb-md">
-      <q-file
-        class="col-2"
-        counter
-        v-model="file"
-        label="Selecione uma Imagem"
-        accept=".jpg, image/*"
+      <q-input
+        filled
+        class="col q-mb-md"
+        v-model="actv._img"
+        label="Imagem (Nome do Arquivo)"
+        type="text"
+        hint="Recomenda-se arquivos .PNG para melhor resolução!"
       />
     </div>
   </div>
@@ -77,7 +78,7 @@
 </template>
 
 <script lang="ts">
-import { PropType, defineComponent, ref } from 'vue';
+import { PropType, defineComponent } from 'vue';
 import { Activity } from './models';
 import { api } from 'src/boot/axios';
 
@@ -91,12 +92,6 @@ export default defineComponent({
     },
   },
   emits: ['selectedActv'],
-
-  setup() {
-    return {
-      file: ref<File>(),
-    };
-  },
 
   data: () => {
     return {
@@ -132,7 +127,7 @@ export default defineComponent({
           name: this.actv.name,
           description: this.actv.description,
           obsv: this.actv.obsv,
-          _img: this.file ? this.file?.name : 'logo.png',
+          _img: this.actv._img ? this.actv._img : 'logo.png',
           valor: this.actv.valor,
           isGratuita: this.actv.isGratuita,
           hasProgram: this.hasProgram.value,
@@ -141,18 +136,6 @@ export default defineComponent({
         const headers = {
           Authorization: 'Bearer ' + localStorage.token,
         };
-        const formData = new FormData();
-
-        if (this.file) {
-          formData.append(this.file.name, this.file);
-          await api
-            .post(`/upload/${this.file?.name}`, formData, {
-              headers: { 'Content-Type': 'multipart/form-data' },
-            })
-            .then((res) => {
-              console.log(res.status);
-            });
-        }
 
         await api
           .put(`/atividade/${this.actv._id}`, updatedactv, { headers: headers })
@@ -179,7 +162,7 @@ export default defineComponent({
           name: this.actv.name,
           description: this.actv.description,
           obsv: this.actv.obsv ? this.actv.obsv : '',
-          _img: this.file ? this.file?.name : 'logo.png',
+          _img: this.actv._img ? this.actv._img : 'logo.png',
           valor: this.actv.valor ? this.actv.valor : 0,
           isGratuita: this.actv.isGratuita,
           hasProgram: this.hasProgram.value,
@@ -188,18 +171,6 @@ export default defineComponent({
         const headers = {
           Authorization: 'Bearer ' + localStorage.token,
         };
-        const formData = new FormData();
-
-        if (this.file) {
-          formData.append(this.file.name, this.file);
-          await api
-            .post(`/upload/${this.file?.name}`, formData, {
-              headers: { 'Content-Type': 'multipart/form-data' },
-            })
-            .then((res) => {
-              console.log(res.status);
-            });
-        }
 
         await api
           .post('/atividade', newactv, { headers: headers })
