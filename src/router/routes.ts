@@ -30,6 +30,14 @@ const routes: RouteRecordRaw[] = [
         path: 'professores',
         component: () => import('pages/AdminTeachersPage.vue'),
       },
+      {
+        path: 'user',
+        component: () => import('pages/ProfilePage.vue'),
+      },
+      {
+        path: 'apearence',
+        component: () => import('pages/ApearencePage.vue'),
+      },
     ],
   },
 

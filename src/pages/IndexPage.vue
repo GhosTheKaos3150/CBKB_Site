@@ -1,7 +1,7 @@
 <template>
   <q-page class="items-start">
     <q-img
-      src="https://api-cbkb.vercel.app/assets/header1.png"
+      src="../assets/banners/header1.png"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
     >
@@ -170,7 +170,7 @@
     </div>
     <q-img
       id="centerTag"
-      src="https://api-cbkb.vercel.app/assets/header2.png"
+      src="../assets/banners/header2.png"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
     >
@@ -249,7 +249,7 @@
     </div>
     <q-img
       id="dharmaTag"
-      src="https://api-cbkb.vercel.app/assets/header3.png"
+      src="../assets/banners/header3.png"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
     >
@@ -319,7 +319,7 @@
     </div>
     <q-img
       id="gesheTag"
-      src="https://api-cbkb.vercel.app/assets/header4.png"
+      src="../assets/banners/header4.png"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
     >
@@ -359,7 +359,7 @@
     </div>
     <q-img
       id="findTag"
-      src="https://api-cbkb.vercel.app/assets/header5.png"
+      src="../assets/banners//header5.png"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
     />

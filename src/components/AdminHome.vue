@@ -59,7 +59,7 @@
       @click="$router.push('/admin/user')"
     />
     <br />
-    <div v-if="isAdmin()">
+    <!-- <div v-if="isAdmin()">
       <q-btn
         class="q-mb-sm"
         align="between"
@@ -71,7 +71,7 @@
         @click="$router.push('/admin/users')"
       />
       <br />
-    </div>
+    </div> -->
     <q-btn
       class="q-mb-sm"
       align="between"

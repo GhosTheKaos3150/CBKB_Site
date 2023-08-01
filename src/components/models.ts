@@ -20,10 +20,11 @@ export interface SelectOption {
 export interface User {
   _id: string | null;
   username: string;
-  fullName: string;
+  fullname: string;
   isEnabled: boolean;
   isAdmin: boolean;
   isProfessor: boolean;
+  password: string | null;
 }
 
 export interface Teacher {
