@@ -4,7 +4,7 @@
   <div class="text-h6 q-ma-sm">HEADER 1 - TODOS OS SERES SÃO BEM VINDOS!</div>
   <div class="q-my-md"></div>
   <q-img
-    src="../../public/banners/header1.png"
+    src="../../public/banners/header1.jpg"
     fit="cover"
     :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
   >

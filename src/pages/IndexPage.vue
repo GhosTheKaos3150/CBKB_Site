@@ -230,7 +230,7 @@
       <div class="text-h5 text-center text-bold q-mb-md">NOSSAS ATIVIDADES</div>
       <q-scroll-area
         class="q-mb-md"
-        :style="$q.platform.is.mobile ? 'height: 600px' : 'height: 75vh'"
+        :style="$q.platform.is.mobile ? 'height: 750px' : 'height: 75vh'"
       >
         <div class="row no-wrap">
           <q-card
@@ -308,10 +308,7 @@
         vida do mundo moderno.
       </div>
       <div class="text-h6 text-center q-mb-xl">OS PROFESSORES</div>
-      <q-scroll-area
-        class="q-mb-md"
-        :style="$q.platform.is.mobile ? 'height: 600px' : 'height: 75vh'"
-      >
+      <q-scroll-area class="q-mb-md" style="height: 75vh">
         <div class="row no-wrap">
           <q-card
             class="col-auto q-mx-md q-pa-md"
@@ -463,27 +460,27 @@ export default defineComponent({
             'principais ensinamentos Budistas, que são conselhos práticos para a nossa vida moderna. ' +
             'Se praticados de maneira sincera, esses ensinamentos nos ajudarão a solucionar todos os nossos ' +
             'problemas diários, como a raiva, o apego, o ciúme, a inveja e, em particular, nossa ignorância.',
-          _img: 'stc1.png',
+          _img: 'stc1.jpg',
         },
         {
           id: 2,
-          nome: 'Palestras e Cursos',
-          description:
-            'Prática é ideal para relaxarmos e aprendermos a controlar a mente, independentemente de ' +
-            'origem, fé ou prática religiosa. Não é preciso ter experiência prévia, nem ser budista. ' +
-            'Basta nos sentarmos confortavelmente e acompanhar as instruções do livro Novo Manual de Meditação. ' +
-            'No final, somos convidados a aplicar os aspectos dos ensinamentos que mais forem úteis para o nosso próprio bem-estar mental.',
-          _img: 'stc2.png',
-        },
-        {
-          id: 3,
           nome: 'Preces Cantadas',
           description:
             'As preces cantadas, ou pujas, são métodos poderosos para recebermos bênçãos, ' +
             'purificarmos nosso carma negativo e acumularmos virtude. ' +
             'Nesses encontros fazemos oferendas e seguimos uma Sadhana (livreto em português), com as preces, ' +
             'para gerarmos estados mentais positivos e virtuosos.',
-          _img: 'stc3.png',
+          _img: 'stc2.jpg',
+        },
+        {
+          id: 3,
+          nome: 'Palestras e Cursos',
+          description:
+            'Prática é ideal para relaxarmos e aprendermos a controlar a mente, independentemente de ' +
+            'origem, fé ou prática religiosa. Não é preciso ter experiência prévia, nem ser budista. ' +
+            'Basta nos sentarmos confortavelmente e acompanhar as instruções do livro Novo Manual de Meditação. ' +
+            'No final, somos convidados a aplicar os aspectos dos ensinamentos que mais forem úteis para o nosso próprio bem-estar mental.',
+          _img: 'stc3.jpg',
         },
       ],
     };
