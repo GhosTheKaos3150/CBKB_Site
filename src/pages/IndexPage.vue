@@ -109,7 +109,11 @@
             :style="evento.destaque ? 'color: yellow;' : ''"
           >
             <div class="text-h5 text-bold">
-              {{ evento.atividade.name }}
+              {{
+                evento.optionalTitle
+                  ? evento.optionalTitle
+                  : evento.atividade.name
+              }}
             </div>
             <div v-if="evento.destaque" class="text-subtitle1 text-bold">
               Atividade Especial!
@@ -157,7 +161,11 @@
             </q-img>
             <q-card-section>
               <div class="text-h5 text-bold">
-                {{ evento.atividade.name }}
+                {{
+                  evento.optionalTitle
+                    ? evento.optionalTitle
+                    : evento.atividade.name
+                }}
               </div>
               <div class="text-subtitle2 q-mb-md">
                 {{

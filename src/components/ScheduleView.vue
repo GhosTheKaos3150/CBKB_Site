@@ -33,7 +33,9 @@
     >
       <div class="absolute-bottom">
         <div class="text-subtitle1 text-bold">
-          {{ evento.atividade.name }}
+          {{
+            evento.optionalTitle ? evento.optionalTitle : evento.atividade.name
+          }}
         </div>
         <div v-if="evento.atividade.hasTema" class="text-subtitle2 text-italic">
           TEMA: {{ evento.tema }}

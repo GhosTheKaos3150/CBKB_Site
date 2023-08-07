@@ -58,6 +58,7 @@ export interface ScheduleEvent {
   descricaoSpc: string;
   imgSpc: string;
   ytLink: string;
+  optionalTitle: string;
   destaque: boolean;
 }
 // Deletar Depois

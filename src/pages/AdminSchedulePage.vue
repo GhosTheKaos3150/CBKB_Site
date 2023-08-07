@@ -12,6 +12,7 @@
     <ScheduleList
       v-if="!scheduleSelected"
       :schedules="schedules"
+      :oldSchedules="oldSchedules"
       @selectedSchd="
         (scs) => {
           scheduleSelected = scs;
@@ -46,10 +47,12 @@ export default defineComponent({
 
   data: () => {
     var schd_init: ScheduleEvent[] = [];
+    var old_schedules_init: ScheduleEvent[] = [];
     var selecteSchd_init: ScheduleEvent | null = null;
 
     return {
       schedules: schd_init,
+      oldSchedules: old_schedules_init,
       scheduleSelected: selecteSchd_init,
     };
   },
@@ -70,6 +73,12 @@ export default defineComponent({
           .filter((se) => new Date(se.date).valueOf() >= Date.now())
           .sort((a: ScheduleEvent, b: ScheduleEvent) => {
             return new Date(a.date).valueOf() - new Date(b.date).valueOf();
+          });
+
+        this.oldSchedules = json
+          .filter((se) => new Date(se.date).valueOf() < Date.now())
+          .sort((a: ScheduleEvent, b: ScheduleEvent) => {
+            return new Date(b.date).valueOf() - new Date(a.date).valueOf();
           });
 
         console.log(this.schedules);

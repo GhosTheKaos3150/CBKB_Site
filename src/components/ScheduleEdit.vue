@@ -80,7 +80,15 @@
       <q-input
         filled
         counter
-        maxlength="1000"
+        maxlength="100"
+        class="q-mb-md"
+        v-model="schd.optionalTitle"
+        label="Título Especial da Atividade"
+      />
+      <q-input
+        filled
+        counter
+        maxlength="1500"
         class="q-mb-md"
         v-model="schd.descricaoSpc"
         label="Descrição do Evento*"
@@ -259,12 +267,15 @@ export default defineComponent({
         imgSpc: this.schd.imgSpc ? this.schd.imgSpc : '',
         date: `${this.date}T${this.time}`,
         tipoAtv: this.schd.tipoAtv,
-        ytLink: this.schd.ytLink,
+        ytLink: this.schd.ytLink ? this.schd.ytLink : '',
+        optionalTitle: this.schd.optionalTitle ? this.schd.optionalTitle : '',
         destaque: this.schd.destaque ? this.schd.destaque : false,
       };
       const headers = {
         Authorization: 'Bearer ' + localStorage.token,
       };
+
+      console.log(schedulling);
 
       if (this.selectedSchd._id) {
         await api
