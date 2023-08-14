@@ -45,6 +45,7 @@ export interface Activity {
   isGratuita: boolean;
   hasTema: boolean;
   hasProgram: boolean;
+  isVoluntaryPayment: boolean;
 }
 
 export interface ScheduleEvent {

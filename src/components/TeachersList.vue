@@ -14,7 +14,7 @@
           :ratio="$q.platform.is.mobile ? 16 / 9 : 1"
           :width="$q.platform.is.mobile ? '100%' : '20%'"
           class="col-5"
-          :src="require(`../../public/assets/${prof._img}`)"
+          :src="`http://meditaremfortaleza.org.br/assets/${prof._img}`"
         />
         <q-card-section style="width: 100%">
           <div class="text-h6">{{ prof.name }}</div>

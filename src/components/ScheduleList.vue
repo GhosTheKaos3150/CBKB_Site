@@ -15,7 +15,7 @@
           :ratio="$q.platform.is.mobile ? 16 / 9 : 1"
           :width="$q.platform.is.mobile ? '100%' : '20%'"
           class="col-5"
-          :src="require(`../../public/assets/${schd.imgSpc}`)"
+          :src="`http://meditaremfortaleza.org.br/assets/${schd.imgSpc}`"
         />
         <q-img
           v-else
@@ -23,7 +23,7 @@
           :ratio="$q.platform.is.mobile ? 16 / 9 : 1"
           :width="$q.platform.is.mobile ? '100%' : '20%'"
           class="col-5"
-          :src="require(`../../public/assets/${schd!.atividade!._img}`)"
+          :src="`http://meditaremfortaleza.org.br/assets/${schd!.atividade!._img}`"
         />
         <q-card-section>
           <div class="text-h6">
@@ -118,7 +118,7 @@
           :ratio="$q.platform.is.mobile ? 16 / 9 : 1"
           :width="$q.platform.is.mobile ? '100%' : '20%'"
           class="col-5"
-          :src="require(`../../public/assets/${schd.imgSpc}`)"
+          :src="`http://meditaremfortaleza.org.br/assets/${schd.imgSpc}`"
         />
         <q-img
           v-else
@@ -126,7 +126,7 @@
           :ratio="$q.platform.is.mobile ? 16 / 9 : 1"
           :width="$q.platform.is.mobile ? '100%' : '20%'"
           class="col-5"
-          :src="require(`../../public/assets/${schd!.atividade!._img}`)"
+          :src="`http://meditaremfortaleza.org.br/assets/${schd!.atividade!._img}`"
         />
         <q-card-section>
           <div class="text-h6">
@@ -162,6 +162,9 @@
           </div>
           <div v-if="schd.atividade.isGratuita" class="q-my-sm">
             <div class="text-p text-italic">Atividade Gratuita</div>
+          </div>
+          <div v-else-if="schd.atividade.isVoluntaryPayment" class="q-my-sm">
+            <div class="text-p text-italic">Contribuição Voluntária</div>
           </div>
           <div v-else class="q-my-sm">
             <div class="text-p text-italic">

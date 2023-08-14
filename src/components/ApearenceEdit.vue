@@ -4,7 +4,7 @@
   <div class="text-h6 q-ma-sm">HEADER 1 - TODOS OS SERES SÃO BEM VINDOS!</div>
   <div class="q-my-md"></div>
   <q-img
-    src="../../public/banners/header1.jpg"
+    src="http://meditaremfortaleza.org.br/banners/header1.jpg"
     fit="cover"
     :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
   >
@@ -20,7 +20,7 @@
   <div class="text-h6 q-ma-sm">HEADER 2 - CENTRO</div>
   <q-img
     id="centerTag"
-    src="../../public/banners/header2.png"
+    src="http://meditaremfortaleza.org.br/banners/header2.png"
     fit="cover"
     :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
   >
@@ -35,7 +35,7 @@
   <div class="text-h6 q-ma-sm">HEADER 3 - A TRADIÇÃO</div>
   <q-img
     id="dharmaTag"
-    src="../../public/banners/header3.png"
+    src="http://meditaremfortaleza.org.br/banners/header3.png"
     fit="cover"
     :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
   >
@@ -50,7 +50,7 @@
   <div class="text-h6 q-ma-sm">HEADER 4 - GESHE-LA</div>
   <q-img
     id="gesheTag"
-    src="../../public/banners/header4.png"
+    src="http://meditaremfortaleza.org.br/banners/header4.png"
     fit="cover"
     :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
   >
@@ -65,7 +65,7 @@
   <div class="text-h6 q-ma-sm">HEADER 5 - FINAL</div>
   <q-img
     id="findTag"
-    src="../../public/banners/header5.png"
+    src="http://meditaremfortaleza.org.br/banners/header5.png"
     fit="cover"
     :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
   />

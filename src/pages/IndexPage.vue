@@ -44,7 +44,7 @@
           :key="stc.id"
         >
           <q-img
-            :src="require(`../../public/assets/${stc._img}`)"
+            :src="`http://meditaremfortaleza.org.br/assets/${stc._img}`"
             fit="cover"
             ratio="1"
             :width="$q.platform.is.mobile ? '85%' : '50%'"
@@ -97,8 +97,8 @@
           :name="evento.atividade.name.toLowerCase().replace(' ', '_')"
           :img-src="
             evento.imgSpc
-              ? require(`../../public/assets/${evento.imgSpc}`)
-              : require(`../../public/assets/${evento.atividade._img}`)
+              ? `http://meditaremfortaleza.org.br/assets/${evento.imgSpc}`
+              : `http://meditaremfortaleza.org.br/assets/${evento.atividade._img}`
           "
           class="column flex-center"
           style="color: black"
@@ -130,7 +130,7 @@
       <div class="text-h5 text-center text-bold q-mb-md">NOSSA PROGRAMAÇÃO</div>
       <q-scroll-area
         class="q-mb-md"
-        :style="$q.platform.is.mobile ? 'height: 600px' : 'height: 75vh'"
+        :style="$q.platform.is.mobile ? 'height: 800px' : 'height: 80vh'"
       >
         <div class="row no-wrap">
           <q-card
@@ -143,8 +143,8 @@
             <q-img
               :src="
                 evento.imgSpc
-                  ? require(`../../public/assets/${evento.imgSpc}`)
-                  : require(`../../public/assets/${evento.atividade._img}`)
+                  ? `http://meditaremfortaleza.org.br/assets/${evento.imgSpc}`
+                  : `http://meditaremfortaleza.org.br/assets/${evento.atividade._img}`
               "
               ratio="1"
             >
@@ -167,6 +167,8 @@
                     : evento.atividade.name
                 }}
               </div>
+              <div class="text-italic">Por {{ evento.professor.name }}</div>
+              <q-separator class="q-my-md" />
               <div class="text-subtitle2 q-mb-md">
                 {{
                   evento.descricaoSpc
@@ -240,7 +242,7 @@
             :style="$q.platform.is.mobile ? 'width: 75vw' : 'width: 250px'"
           >
             <q-img
-              :src="require(`../../public/assets/${atividade._img}`)"
+              :src="`http://meditaremfortaleza.org.br/assets/${atividade._img}`"
               ratio="1"
               fit="contain"
               class=""
@@ -308,29 +310,30 @@
         vida do mundo moderno.
       </div>
       <div class="text-h6 text-center q-mb-xl">OS PROFESSORES</div>
-      <q-scroll-area class="q-mb-md" style="height: 75vh">
+      <q-scroll-area class="q-mb-md" style="height: 70vh">
         <div class="row no-wrap">
-          <q-card
-            class="col-auto q-mx-md q-pa-md"
-            v-for="prof in professores"
-            :key="prof._id"
-            :style="$q.platform.is.mobile ? 'width: 75vw' : 'width: 250px'"
-          >
-            <q-img
-              :src="require(`../../public/assets/${prof._img}`)"
-              ratio="1"
-              class=""
-              style="border-radius: 100%"
-            />
-            <q-card-section>
-              <div class="text-h5 text-bold q-mb-sm">
-                {{ prof.name }}
-              </div>
-              <div class="text-subtitle2">
-                {{ prof.description }}
-              </div>
-            </q-card-section>
-          </q-card>
+          <div v-for="prof in professores" :key="prof._id" class="col-auto">
+            <q-card
+              v-if="prof.exibir"
+              class="q-mx-md q-pa-md"
+              style="height: 100%"
+              :style="$q.platform.is.mobile ? 'width: 75vw' : 'width: 250px'"
+            >
+              <q-img
+                :src="`http://meditaremfortaleza.org.br/assets/${prof._img}`"
+                ratio="1"
+                style="border-radius: 100%"
+              />
+              <q-card-section>
+                <div class="text-h5 text-bold q-mb-sm">
+                  {{ prof.name }}
+                </div>
+                <div class="text-subtitle2">
+                  {{ prof.description }}
+                </div>
+              </q-card-section>
+            </q-card>
+          </div>
         </div>
       </q-scroll-area>
     </div>

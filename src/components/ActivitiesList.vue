@@ -14,7 +14,7 @@
           :ratio="$q.platform.is.mobile ? 16 / 9 : 1"
           :width="$q.platform.is.mobile ? '100%' : '20%'"
           class="col-5"
-          :src="require(`../../public/assets/${actv._img}`)"
+          :src="`http://meditaremfortaleza.org.br/assets/${actv._img}`"
         />
         <q-card-section>
           <div class="text-h6">{{ actv.name }}</div>
@@ -29,6 +29,9 @@
           </div>
           <div v-if="actv.isGratuita" class="q-my-sm">
             <div class="text-p text-italic">Atividade Gratuita</div>
+          </div>
+          <div v-else-if="actv.isVoluntaryPayment" class="q-my-sm">
+            <div class="text-p text-italic">Contribuição Voluntária</div>
           </div>
           <div v-else class="q-my-sm">
             <div class="text-p text-italic">

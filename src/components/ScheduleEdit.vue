@@ -38,6 +38,7 @@
     </div>
     <q-separator class="q-mb-md" />
     <div v-if="selectedAtv">
+      <div class="text-h6 q-ma-sm">Detalhes da Atividade</div>
       <q-input
         filled
         counter
@@ -45,6 +46,7 @@
         class="q-mb-md"
         v-model="selectedAtv.value.name"
         label="Título da Atividade*"
+        disable
       />
       <q-input
         v-if="selectedAtv.value.hasTema"
@@ -78,24 +80,6 @@
         autogrow
       />
       <q-input
-        filled
-        counter
-        maxlength="100"
-        class="q-mb-md"
-        v-model="schd.optionalTitle"
-        label="Título Especial da Atividade"
-      />
-      <q-input
-        filled
-        counter
-        maxlength="1500"
-        class="q-mb-md"
-        v-model="schd.descricaoSpc"
-        label="Descrição do Evento*"
-        type="textarea"
-        autogrow
-      />
-      <q-input
         v-if="selectedAtv.value.hasProgram"
         filled
         counter
@@ -105,21 +89,6 @@
         label="Programação"
         type="textarea"
         autogrow
-      />
-      <q-input
-        filled
-        class="q-mb-md"
-        v-model="schd.ytLink"
-        label="Link de Vídeo (Youtube)"
-        type="text"
-      />
-      <q-input
-        filled
-        class="q-mb-md"
-        v-model="schd.imgSpc"
-        label="Imagem do Evento (Nome do Arquivo)"
-        type="text"
-        hint="Recomenda-se arquivos .PNG para melhor resolução!"
       />
       <div class="q-mb-md" :class="!$q.platform.is.mobile ? 'row' : ''">
         <div :class="!$q.platform.is.mobile ? 'col' : ''">
@@ -140,14 +109,55 @@
             label="Valor"
             prefix="R$"
             type="number"
-            :disable="selectedAtv.value.isGratuita"
+            disable
           />
           <q-toggle
             v-model="selectedAtv.value.isGratuita"
             label="Atividade Gratuita?"
+            disable
+          />
+          <q-toggle
+            v-model="selectedAtv.value.isVoluntaryPayment"
+            label="Contribuição Voluntaria?"
+            disable
           />
         </div>
       </div>
+      <q-separator class="q-mb-md" />
+      <div class="text-h6 q-ma-sm">Detalhes do Evento</div>
+      <q-input
+        filled
+        counter
+        maxlength="100"
+        class="q-mb-md"
+        v-model="schd.optionalTitle"
+        label="Título do Evento"
+      />
+      <q-input
+        filled
+        counter
+        maxlength="1500"
+        class="q-mb-md"
+        v-model="schd.descricaoSpc"
+        label="Descrição do Evento*"
+        type="textarea"
+        autogrow
+      />
+      <q-input
+        filled
+        class="q-mb-md"
+        v-model="schd.ytLink"
+        label="Link de Vídeo (Youtube)"
+        type="text"
+      />
+      <q-input
+        filled
+        class="q-mb-md"
+        v-model="schd.imgSpc"
+        label="Imagem do Evento (Nome do Arquivo)"
+        type="text"
+        hint="Recomenda-se arquivos .PNG para melhor resolução!"
+      />
     </div>
   </div>
   <div class="row">

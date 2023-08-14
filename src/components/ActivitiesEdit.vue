@@ -42,9 +42,18 @@
           label="Valor"
           prefix="R$"
           type="number"
+          :disable="actv.isGratuita || actv.isVoluntaryPayment"
+        />
+        <q-toggle
+          v-model="actv.isGratuita"
+          label="Atividade Gratuita?"
+          :disable="actv.isVoluntaryPayment"
+        />
+        <q-toggle
+          v-model="actv.isVoluntaryPayment"
+          label="Contribuição Voluntaria?"
           :disable="actv.isGratuita"
         />
-        <q-toggle v-model="actv.isGratuita" label="Atividade Gratuita?" />
       </div>
       <q-select
         class="col q-px-sm"
@@ -130,6 +139,7 @@ export default defineComponent({
           _img: this.actv._img ? this.actv._img : 'logo.png',
           valor: this.actv.valor,
           isGratuita: this.actv.isGratuita,
+          isVoluntaryPayment: this.actv.isVoluntaryPayment,
           hasProgram: this.hasProgram.value,
           hasTema: this.hasTema.value,
         };
@@ -165,6 +175,7 @@ export default defineComponent({
           _img: this.actv._img ? this.actv._img : 'logo.png',
           valor: this.actv.valor ? this.actv.valor : 0,
           isGratuita: this.actv.isGratuita,
+          isVoluntaryPayment: this.actv.isVoluntaryPayment,
           hasProgram: this.hasProgram.value,
           hasTema: this.hasTema.value,
         };

@@ -6,7 +6,7 @@
     <q-btn icon="bi-arrow-left q-my-md" @click="$router.go(-1)" flat />
     <q-img
       v-if="evento.imgSpc"
-      :src="require(`../../public/assets/${evento.imgSpc}`)"
+      :src="`http://meditaremfortaleza.org.br/assets/${evento.imgSpc}`"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 1 : 16 / 9"
     >
@@ -27,7 +27,7 @@
     </q-img>
     <q-img
       v-else
-      :src="require(`../../public/assets/${evento!.atividade!._img}`)"
+      :src="`http://meditaremfortaleza.org.br/assets/${evento!.atividade!._img}`"
       fit="cover"
       :ratio="$q.platform.is.mobile ? 1 : 16 / 9"
     >
@@ -59,6 +59,12 @@
       allowfullscreen
     ></iframe>
     <div class="text-h5 text-bold q-mb-md">TODOS OS SERES SÃO BEM VINDOS!</div>
+    <div class="text-h5">
+      {{ evento.optionalTitle ? evento.optionalTitle : evento.atividade.name }}
+    </div>
+    <div class="text-h6 text-italic q-mb-md">
+      Por {{ evento.professor.name }}
+    </div>
     <div
       style="white-space: pre-line"
       class="text-subtitle2 text-nowrap q-mb-md"
@@ -69,6 +75,9 @@
     </div>
     <div v-if="evento.atividade.isGratuita" class="q-my-sm">
       <div class="text-subtitle2 text-italic">Atividade Gratuita</div>
+    </div>
+    <div v-if="evento.atividade.isVoluntaryPayment" class="q-my-sm">
+      <div class="text-subtitle2 text-italic">Contribuição Voluntária</div>
     </div>
     <div v-else class="q-my-sm">
       <div class="text-subtitle2 text-italic">
