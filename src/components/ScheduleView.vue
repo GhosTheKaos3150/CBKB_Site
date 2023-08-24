@@ -80,7 +80,7 @@
       <div class="text-subtitle2 text-italic">Atividade Gratuita</div>
     </div>
     <div
-      v-if="evento.atividade.isVoluntaryPayment && !evento.customPrice"
+      v-else-if="evento.atividade.isVoluntaryPayment && !evento.customPrice"
       class="q-my-sm"
     >
       <div class="text-subtitle2 text-italic">Contribuição Voluntária</div>

@@ -57,8 +57,17 @@
             Observação:
             <span class="text-italic">{{ schd.atividade.obsv }}</span>
           </div>
-          <div v-if="schd.atividade.isGratuita" class="q-my-sm">
+          <div
+            v-if="schd.atividade.isGratuita && !schd.customPrice"
+            class="q-my-sm"
+          >
             <div class="text-p text-italic">Atividade Gratuita</div>
+          </div>
+          <div
+            v-else-if="schd.atividade.isVoluntaryPayment && !schd.customPrice"
+            class="q-my-sm"
+          >
+            <div class="text-p text-italic">Contribuição Voluntária</div>
           </div>
           <div v-else class="q-my-sm">
             <div class="text-p text-italic">

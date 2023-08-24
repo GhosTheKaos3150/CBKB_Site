@@ -183,7 +183,7 @@
                 Atividade Gratuita
               </div>
               <div
-                v-if="
+                v-else-if="
                   evento.atividade.isVoluntaryPayment && !evento.customPrice
                 "
                 class="text-subtitle2 text-italic"
