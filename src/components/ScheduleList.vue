@@ -62,7 +62,8 @@
           </div>
           <div v-else class="q-my-sm">
             <div class="text-p text-italic">
-              Valor da Atividade: R$ {{ schd.atividade.valor }}
+              Valor da Atividade: R$
+              {{ schd.customPrice ? schd.customPrice : schd.atividade.valor }}
             </div>
           </div>
         </q-card-section>
@@ -168,7 +169,8 @@
           </div>
           <div v-else class="q-my-sm">
             <div class="text-p text-italic">
-              Valor da Atividade: R$ {{ schd.atividade.valor }}
+              Valor da Atividade: R$
+              {{ schd.customPrice ? schd.customPrice : schd.atividade.valor }}
             </div>
           </div>
         </q-card-section>

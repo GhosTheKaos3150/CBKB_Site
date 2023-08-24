@@ -131,7 +131,8 @@
         maxlength="100"
         class="q-mb-md"
         v-model="schd.optionalTitle"
-        label="Título do Evento"
+        label="Título Especial do Evento"
+        hint="Título customizado para este evento, se aplicável."
       />
       <q-input
         filled
@@ -139,8 +140,9 @@
         maxlength="1500"
         class="q-mb-md"
         v-model="schd.descricaoSpc"
-        label="Descrição do Evento*"
+        label="Descrição Especial do Evento"
         type="textarea"
+        hint="Descrição customizada para este evento, se aplicável."
         autogrow
       />
       <q-input
@@ -148,15 +150,25 @@
         class="q-mb-md"
         v-model="schd.ytLink"
         label="Link de Vídeo (Youtube)"
+        hint="Link para um vídeo explicativo para este evento, se aplicável."
         type="text"
       />
       <q-input
         filled
         class="q-mb-md"
         v-model="schd.imgSpc"
-        label="Imagem do Evento (Nome do Arquivo)"
+        label="Imagem Especial do Evento (Nome do Arquivo)"
         type="text"
-        hint="Recomenda-se arquivos .PNG para melhor resolução!"
+        hint="Imagem customizada deste evento. Recomenda-se arquivos .PNG para melhor resolução!"
+      />
+      <q-input
+        filled
+        class="q-mb-md"
+        v-model="schd.customPrice"
+        label="Valor Especial do Evento"
+        prefix="R$"
+        type="number"
+        hint="Valor customizado para este evento, se aplicável."
       />
     </div>
   </div>
@@ -280,6 +292,7 @@ export default defineComponent({
         ytLink: this.schd.ytLink ? this.schd.ytLink : '',
         optionalTitle: this.schd.optionalTitle ? this.schd.optionalTitle : '',
         destaque: this.schd.destaque ? this.schd.destaque : false,
+        customPrice: this.schd.customPrice ? this.schd.customPrice : 0,
       };
       const headers = {
         Authorization: 'Bearer ' + localStorage.token,

@@ -73,15 +73,22 @@
         evento.descricaoSpc ? evento.descricaoSpc : evento.atividade.description
       }}
     </div>
-    <div v-if="evento.atividade.isGratuita" class="q-my-sm">
+    <div
+      v-if="evento.atividade.isGratuita && !evento.customPrice"
+      class="q-my-sm"
+    >
       <div class="text-subtitle2 text-italic">Atividade Gratuita</div>
     </div>
-    <div v-if="evento.atividade.isVoluntaryPayment" class="q-my-sm">
+    <div
+      v-if="evento.atividade.isVoluntaryPayment && !evento.customPrice"
+      class="q-my-sm"
+    >
       <div class="text-subtitle2 text-italic">Contribuição Voluntária</div>
     </div>
     <div v-else class="q-my-sm">
       <div class="text-subtitle2 text-italic">
-        Valor da Atividade: R$ {{ evento.atividade.valor }}
+        Valor da Atividade: R$
+        {{ evento.customPrice ? evento.customPrice : evento.atividade.valor }}
       </div>
     </div>
     <div class="text-subtitle2 text-italic q-mb-md">

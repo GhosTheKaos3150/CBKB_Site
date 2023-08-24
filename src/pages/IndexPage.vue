@@ -177,13 +177,26 @@
                 }}
               </div>
               <div
-                v-if="evento.atividade.isGratuita"
+                v-if="evento.atividade.isGratuita && !evento.customPrice"
                 class="text-subtitle2 text-italic"
               >
                 Atividade Gratuita
               </div>
+              <div
+                v-if="
+                  evento.atividade.isVoluntaryPayment && !evento.customPrice
+                "
+                class="text-subtitle2 text-italic"
+              >
+                Contribuição Voluntária
+              </div>
               <div v-else class="text-subtitle2 text-italic">
-                Valor: R$ {{ evento.atividade.valor }}
+                Valor: R$
+                {{
+                  evento.customPrice
+                    ? evento.customPrice
+                    : evento.atividade.valor
+                }}
               </div>
             </q-card-section>
           </q-card>

@@ -61,5 +61,6 @@ export interface ScheduleEvent {
   ytLink: string;
   optionalTitle: string;
   destaque: boolean;
+  customPrice: number;
 }
 // Deletar Depois
