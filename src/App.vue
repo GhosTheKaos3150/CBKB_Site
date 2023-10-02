@@ -18,15 +18,17 @@ const metaData = {
     description: {
       name: 'description',
       content:
-        'O Centro Bodhisattva está aberto a todas as pessoas que buscam a paz interior. ' +
-        ' Oferecemos um espaço tranquilo e acolhedor, aberto a budistas e não budistas.',
+        'O Centro Budista Kadampa Bodhissatva é aberto para todos que buscam paz interior em Fortaleza, ' +
+        'com um espaço tranquilo e acolhedor para budistas e não budistas.',
     },
     keywords: {
       name: 'keywords',
       content:
-        'budismo moderno em fortaleza, budismo kadampa em fortaleza, meditar em fortaleza, budismo em fortaleza, kadampa em fortaleza, geshe-la em fortaleza,' +
-        'pujas em fortaleza, centro de meditação em fortaleza, meditação em fortaleza, meditação kadampa em fortaleza, budismo no ceará, budismo kadampa no ceará,' +
-        'kadampa no ceará, centro budista kadampa bodhisattva',
+        'budismo, moderno, fortaleza, kadampa, budismo kadampa, centro budista, centro, ceará, meditação, meditar, paz, felicidade',
+    },
+    robots: {
+      name: 'robots',
+      content: 'index, follow',
     },
   },
 
