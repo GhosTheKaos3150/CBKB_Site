@@ -14,6 +14,12 @@ const routes: RouteRecordRaw[] = [
   },
 
   {
+    path: '/donation',
+    component: () => import('layouts/AdminLayout.vue'),
+    children: [{ path: '', component: () => import('pages/DonationPage.vue') }],
+  },
+
+  {
     path: '/admin',
     component: () => import('layouts/AdminLayout.vue'),
     children: [

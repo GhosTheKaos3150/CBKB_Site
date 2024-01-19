@@ -2,6 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <q-header>
       <q-toolbar v-if="$q.platform.is.mobile">
+        <q-btn flat @click="toggleLeftDrawer" round dense icon="menu" />
         <q-space />
         <q-img
           src="../assets/cbkb_logo.png"
@@ -17,6 +18,7 @@
       <q-toolbar v-else>
         <q-space />
         <q-btn-group flat>
+          <q-btn @click="$router.push(`/donation`)">FAÇA UMA DOAÇÃO</q-btn>
           <!-- <q-btn icon="bi-facebook" /> -->
           <q-btn
             icon="bi-instagram"
@@ -55,6 +57,38 @@
         <q-space />
       </q-toolbar>
     </q-header>
+
+    <q-drawer
+      v-if="$q.platform.is.mobile"
+      v-model="leftDrawerOpen"
+      overlay
+      bordered
+    >
+      <q-scroll-area class="fit">
+        <q-item clickable href="/#/donation" class="q-my-md">
+          <q-item-section avatar>
+            <q-icon name="volunteer_activism" />
+          </q-item-section>
+          <q-item-section> Faça uma Doação! </q-item-section>
+        </q-item>
+
+        <q-separator />
+
+        <q-item
+          clickable
+          target="_blank"
+          href="https://www.instagram.com/meditaremfortaleza/"
+          class="q-my-md"
+        >
+          <q-item-section avatar>
+            <q-icon name="bi-instagram" />
+          </q-item-section>
+          <q-item-section> Acompanhe nosso Instagram! </q-item-section>
+        </q-item>
+
+        <q-separator />
+      </q-scroll-area>
+    </q-drawer>
 
     <q-page-container>
       <router-view />

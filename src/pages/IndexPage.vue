@@ -1,18 +1,6 @@
 <template>
   <q-page class="items-start">
-    <q-img
-      src="../../public/banners/header1.png"
-      fit="cover"
-      :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
-    >
-      <div
-        class="absolute-bottom text-bold"
-        :class="$q.platform.is.mobile ? 'text-h5' : 'text-h4'"
-        :style="$q.platform.is.mobile ? '' : 'padding-left: 25%;'"
-      >
-        TODOS OS SERES SÃO BEM VINDOS!
-      </div>
-    </q-img>
+    <index-banner-show />
     <div
       class="justify-center"
       :style="
@@ -120,6 +108,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import IndexBannerShow from '../components/IndexBannerShow.vue';
 import IndexActivityShow from '../components/IndexActivityShow.vue';
 import IndexCenterShow from '../components/IndexCenterShow.vue';
 import IndexTraditionShow from '../components/IndexTraditionShow.vue';
@@ -128,6 +117,7 @@ import IndexGeshelaShow from '../components/IndexGeshelaShow.vue';
 export default defineComponent({
   name: 'IndexPage',
   components: {
+    IndexBannerShow,
     IndexActivityShow,
     IndexCenterShow,
     IndexTraditionShow,

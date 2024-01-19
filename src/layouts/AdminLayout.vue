@@ -17,6 +17,7 @@
       <q-toolbar v-else>
         <q-space />
         <q-btn-group flat>
+          <q-btn @click="$router.push(`/donation`)">FAÇA UMA DOAÇÃO</q-btn>
           <!-- <q-btn icon="bi-facebook" /> -->
           <q-btn
             icon="bi-instagram"

@@ -39,43 +39,42 @@
       visitar a qualquer momento!
     </div>
     <div class="text-h5 text-center text-bold q-mb-md">NOSSAS ATIVIDADES</div>
-    <q-responsive :ratio="$q.platform.is.mobile ? 9 / 21 : 4 / 3">
-      <q-scroll-area class="q-mb-md">
-        <div class="row no-wrap">
-          <q-card
-            class="col-auto wrap q-mx-md q-pa-md"
-            v-for="atividade in atividades"
-            :key="atividade._id"
-            :style="$q.platform.is.mobile ? 'width: 75vw' : 'width: 250px'"
-          >
-            <q-img
-              :src="`http://meditaremfortaleza.org.br/assets/${atividade._img}`"
-              ratio="1"
-              fit="contain"
-              class=""
-              style="border-radius: 100%"
-            />
-            <q-card-section>
-              <div class="text-h5 text-bold q-mb-sm">
-                {{ atividade.name }}
-              </div>
-              <div class="text-subtitle2 q-mb-md">
-                {{ atividade.description }}
-              </div>
-              <div
-                v-if="atividade.isGratuita"
-                class="text-subtitle2 text-italic"
-              >
-                Atividade Gratuita
-              </div>
-              <div v-else class="text-subtitle2 text-italic">
-                Valor: R$ {{ atividade.valor }}
-              </div>
-            </q-card-section>
-          </q-card>
-        </div>
-      </q-scroll-area>
-    </q-responsive>
+    <q-scroll-area class="q-mb-md hide-scrollbar" style="height: 100vh">
+      <div class="row no-wrap">
+        <q-card
+          class="q-mx-md"
+          v-for="atividade in atividades"
+          :key="atividade._id"
+          :style="
+            $q.platform.is.mobile
+              ? 'width: 72vw; height: 95vh'
+              : 'width: 250px; height: 72vh'
+          "
+        >
+          <q-img
+            :src="`http://meditaremfortaleza.org.br/assets/${atividade._img}`"
+            ratio="1"
+            fit="contain"
+            class=""
+            style="border-radius: 100%"
+          />
+          <q-card-section>
+            <div class="text-h5 text-bold q-mb-sm">
+              {{ atividade.name }}
+            </div>
+            <div class="text-subtitle2 q-mb-md">
+              {{ atividade.description }}
+            </div>
+            <div v-if="atividade.isGratuita" class="text-subtitle2 text-italic">
+              Atividade Gratuita
+            </div>
+            <div v-else class="text-subtitle2 text-italic">
+              Valor: R$ {{ atividade.valor }}
+            </div>
+          </q-card-section>
+        </q-card>
+      </div>
+    </q-scroll-area>
   </div>
 </template>
 

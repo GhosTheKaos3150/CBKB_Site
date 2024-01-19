@@ -39,34 +39,36 @@
       uma forma que seja adequada ao estilo de vida do mundo moderno.
     </div>
     <div class="text-h6 text-center q-mb-xl">OS PROFESSORES</div>
-    <q-responsive :ratio="$q.platform.is.mobile ? 9 / 21 : 4 / 3">
-      <q-scroll-area class="q-mb-md" style="height: 70vh">
-        <div class="row no-wrap">
-          <div v-for="prof in professores" :key="prof._id" class="col-auto">
-            <q-card
-              v-if="prof.exibir"
-              class="q-mx-md q-pa-md"
-              style="height: 100%"
-              :style="$q.platform.is.mobile ? 'width: 75vw' : 'width: 250px'"
-            >
-              <q-img
-                :src="`http://meditaremfortaleza.org.br/assets/${prof._img}`"
-                ratio="1"
-                style="border-radius: 100%"
-              />
-              <q-card-section>
-                <div class="text-h5 text-bold q-mb-sm">
-                  {{ prof.name }}
-                </div>
-                <div class="text-subtitle2">
-                  {{ prof.description }}
-                </div>
-              </q-card-section>
-            </q-card>
-          </div>
+    <q-scroll-area class="q-mb-md hide-scrollbar" style="height: 80vh">
+      <div class="row no-wrap">
+        <div v-for="prof in professores" :key="prof._id" class="col-auto">
+          <q-card
+            v-if="prof.exibir"
+            class="q-mx-md q-pa-md"
+            style="height: 72vh"
+            :style="
+              $q.platform.is.mobile
+                ? 'width: 75vw; height: 75vh'
+                : 'width: 250px; height: 72vh'
+            "
+          >
+            <q-img
+              :src="`http://meditaremfortaleza.org.br/assets/${prof._img}`"
+              ratio="1"
+              style="border-radius: 100%"
+            />
+            <q-card-section>
+              <div class="text-h5 text-bold q-mb-sm">
+                {{ prof.name }}
+              </div>
+              <div class="text-subtitle2">
+                {{ prof.description }}
+              </div>
+            </q-card-section>
+          </q-card>
         </div>
-      </q-scroll-area>
-    </q-responsive>
+      </div>
+    </q-scroll-area>
   </div>
 </template>
 
