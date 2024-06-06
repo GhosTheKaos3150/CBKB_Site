@@ -23,7 +23,7 @@
           >
           </q-img>
         </div>
-        <div>
+        <div v-if="!$q.platform.is.mobile">
           <q-img
             src="../../public/banners/header2.png"
             fit="scale-down"
@@ -31,13 +31,6 @@
             :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
             placeholder-src="../../public/banners/header2.png"
           >
-            <div
-              class="absolute-bottom text-bold"
-              :class="$q.platform.is.mobile ? 'text-h5' : 'text-h4'"
-              :style="$q.platform.is.mobile ? '' : 'padding-left: 25%;'"
-            >
-              TODOS OS SERES SÃO BEM VINDOS!
-            </div>
           </q-img>
         </div>
       </q-carousel-slide>
@@ -53,12 +46,7 @@
         <div>
           <q-img
             class="absolute-full"
-            style="filter: blur(5px)"
-            :src="
-              evento.imgSpc
-                ? `http://meditaremfortaleza.org.br/assets/${evento.imgSpc}`
-                : `http://meditaremfortaleza.org.br/assets/${evento.atividade._img}`
-            "
+            src="../../public/banners/header2.png"
             placeholder-src="../../public/banners/header2.png"
           >
           </q-img>

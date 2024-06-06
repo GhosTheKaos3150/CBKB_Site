@@ -1,6 +1,7 @@
 <template>
   <q-page class="items-start">
     <index-banner-show />
+    <index-new-channel-show />
     <div
       class="justify-center"
       :style="
@@ -113,6 +114,7 @@ import IndexActivityShow from '../components/IndexActivityShow.vue';
 import IndexCenterShow from '../components/IndexCenterShow.vue';
 import IndexTraditionShow from '../components/IndexTraditionShow.vue';
 import IndexGeshelaShow from '../components/IndexGeshelaShow.vue';
+import IndexNewChannelShow from '../components/IndexNewChannelShow.vue';
 
 export default defineComponent({
   name: 'IndexPage',
@@ -122,6 +124,7 @@ export default defineComponent({
     IndexCenterShow,
     IndexTraditionShow,
     IndexGeshelaShow,
+    IndexNewChannelShow,
   },
   setup() {
     return {

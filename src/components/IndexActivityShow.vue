@@ -28,7 +28,7 @@
                       : `http://meditaremfortaleza.org.br/assets/${evento.atividade._img}`
                   "
                   ratio="1"
-                  style="max-width: 250px"
+                  :style="$q.platform.is.mobile ? '' : 'max-width: 250px'"
                 />
                 <q-card-section>
                   <div class="text-h5 text-bold">

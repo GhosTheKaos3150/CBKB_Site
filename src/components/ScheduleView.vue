@@ -10,7 +10,7 @@
       :class="$q.platform.is.mobile ? 'q-mb-md' : 'col q-mr-md'"
       v-if="evento.atividade"
     >
-      <div v-if="evento.imgSpc">
+      <div style="background-color: #7e642a" v-if="evento.imgSpc">
         <q-img
           :src="`http://meditaremfortaleza.org.br/assets/${evento.imgSpc}`"
           fit="scale-down"
@@ -35,17 +35,7 @@
           </div>
         </q-img>
       </div>
-      <div v-else>
-        <div>
-          <div>
-            <q-img
-              class="absolute-full"
-              style="filter: blur(5px)"
-              :src="`http://meditaremfortaleza.org.br/assets/${evento!.atividade!._img}`"
-            >
-            </q-img>
-          </div>
-        </div>
+      <div style="background-color: #7e642a" v-else>
         <div>
           <q-img
             :src="`http://meditaremfortaleza.org.br/assets/${evento!.atividade!._img}`"
@@ -140,9 +130,6 @@
         </div>
       </div>
     </div>
-    <!-- <div :class="$q.platform.is.mobile ? 'q-mt-md' : 'col q-ml-md'">
-
-    </div> -->
   </div>
 </template>
 
