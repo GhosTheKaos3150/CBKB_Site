@@ -12,7 +12,8 @@
         <q-img
           v-if="schd.imgSpc"
           fit="cover"
-          :ratio="$q.platform.is.mobile ? 16 / 9 : 1"
+          ratio="1"
+          style="max-width: 250px"
           :width="$q.platform.is.mobile ? '100%' : '20%'"
           class="col-5"
           :src="`http://meditaremfortaleza.org.br/assets/${schd.imgSpc}`"
@@ -20,7 +21,8 @@
         <q-img
           v-else
           fit="cover"
-          :ratio="$q.platform.is.mobile ? 16 / 9 : 1"
+          ratio="1"
+          style="max-width: 250px"
           :width="$q.platform.is.mobile ? '100%' : '20%'"
           class="col-5"
           :src="`http://meditaremfortaleza.org.br/assets/${schd!.atividade!._img}`"
@@ -125,7 +127,8 @@
         <q-img
           v-if="schd.imgSpc"
           fit="cover"
-          :ratio="$q.platform.is.mobile ? 16 / 9 : 1"
+          ratio="1"
+          style="max-width: 250px"
           :width="$q.platform.is.mobile ? '100%' : '20%'"
           class="col-5"
           :src="`http://meditaremfortaleza.org.br/assets/${schd.imgSpc}`"
@@ -133,7 +136,8 @@
         <q-img
           v-else
           fit="cover"
-          :ratio="$q.platform.is.mobile ? 16 / 9 : 1"
+          ratio="1"
+          style="max-width: 250px"
           :width="$q.platform.is.mobile ? '100%' : '20%'"
           class="col-5"
           :src="`http://meditaremfortaleza.org.br/assets/${schd!.atividade!._img}`"

@@ -39,17 +39,16 @@
       uma forma que seja adequada ao estilo de vida do mundo moderno.
     </div>
     <div class="text-h6 text-center q-mb-xl">OS PROFESSORES</div>
-    <q-scroll-area class="q-mb-md hide-scrollbar" style="height: 80vh">
+    <q-scroll-area class="q-mb-md hide-scrollbar" style="height: 65vh">
       <div class="row no-wrap">
         <div v-for="prof in professores" :key="prof._id" class="col-auto">
           <q-card
             v-if="prof.exibir"
             class="q-mx-md q-pa-md"
-            style="height: 72vh"
             :style="
               $q.platform.is.mobile
-                ? 'width: 75vw; height: 75vh'
-                : 'width: 250px; height: 72vh'
+                ? 'width: 72vw; height: 60vh'
+                : 'width: 250px; height: 60vh'
             "
           >
             <q-img

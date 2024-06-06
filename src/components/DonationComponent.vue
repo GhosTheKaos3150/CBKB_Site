@@ -40,7 +40,7 @@
         </div>
         <q-img
           ratio="1"
-          src="../assets/qrcode_pix.jpg"
+          src=" qrcode_pix.jpg"
           style="
             width: 75%;
             margin-left: auto;

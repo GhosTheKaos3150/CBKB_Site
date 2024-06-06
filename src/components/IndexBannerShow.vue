@@ -1,5 +1,5 @@
 <template>
-  <div v-if="eventos.length > 0">
+  <div v-if="loaded && eventos.length > 0">
     <q-carousel
       v-model="slide"
       animated
@@ -10,6 +10,38 @@
       transition-next="slide-left"
       control-color="secondary"
     >
+      <q-carousel-slide
+        name="mainSlide"
+        class="column flex-center"
+        style="color: black"
+      >
+        <div>
+          <q-img
+            class="absolute-full"
+            src="../../public/banners/header2.png"
+            placeholder-src="../../public/banners/header2.png"
+          >
+          </q-img>
+        </div>
+        <div>
+          <q-img
+            src="../../public/banners/header2.png"
+            fit="scale-down"
+            class="absolute-full"
+            :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
+            placeholder-src="../../public/banners/header2.png"
+          >
+            <div
+              class="absolute-bottom text-bold"
+              :class="$q.platform.is.mobile ? 'text-h5' : 'text-h4'"
+              :style="$q.platform.is.mobile ? '' : 'padding-left: 25%;'"
+            >
+              TODOS OS SERES SÃO BEM VINDOS!
+            </div>
+          </q-img>
+        </div>
+      </q-carousel-slide>
+
       <q-carousel-slide
         v-for="evento in destaques"
         :key="evento._id"
@@ -27,6 +59,7 @@
                 ? `http://meditaremfortaleza.org.br/assets/${evento.imgSpc}`
                 : `http://meditaremfortaleza.org.br/assets/${evento.atividade._img}`
             "
+            placeholder-src="../../public/banners/header2.png"
           >
           </q-img>
         </div>
@@ -40,6 +73,7 @@
                 ? `http://meditaremfortaleza.org.br/assets/${evento.imgSpc}`
                 : `http://meditaremfortaleza.org.br/assets/${evento.atividade._img}`
             "
+            placeholder-src="../../public/banners/header2.png"
           />
         </div>
         <div
@@ -117,34 +151,37 @@ export default defineComponent({
     return {
       destaques: [] as ScheduleEvent[],
       eventos: [] as ScheduleEvent[],
+      loaded: false,
     };
   },
 
   async mounted() {
+    var eventos: any[] = [];
+    var destaques: any[] = [];
+    var slide = '';
+
     await api
       .get('/programacao')
       .then((res) => {
         return res.data;
       })
       .then((json: ScheduleEvent[]) => {
-        this.eventos = json
+        eventos = json
           .filter((se) => Date.now() <= new Date(se.date).valueOf())
           .sort((a: ScheduleEvent, b: ScheduleEvent) => {
             return new Date(a.date).valueOf() - new Date(b.date).valueOf();
           });
 
-        if (this.eventos.length > 0) {
-          this.destaques = this.eventos.slice(0, 5).sort((a, b) => {
+        if (eventos.length > 0) {
+          destaques = eventos.slice(0, 5).sort((a, b) => {
             if (a.destaque && !b.destaque) return -1;
             if (b.destaque && !a.destaque) return 1;
             return 0;
           });
         }
 
-        if (this.destaques.length > 0)
-          this.slide = this.destaques[0].atividade.name
-            .toLowerCase()
-            .replace(' ', '_');
+        if (destaques.length > 0)
+          slide = destaques[0].atividade.name.toLowerCase().replace(' ', '_');
       })
       .catch((e) => {
         console.log(e);
@@ -155,6 +192,12 @@ export default defineComponent({
             'O Servidor não concluiu a requisição. Tente novamente mais tarde.',
         });
       });
+
+    this.eventos = eventos;
+    this.destaques = destaques;
+    this.slide = slide;
+
+    this.loaded = true;
   },
 
   methods: {

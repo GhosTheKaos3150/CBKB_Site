@@ -39,7 +39,7 @@
       visitar a qualquer momento!
     </div>
     <div class="text-h5 text-center text-bold q-mb-md">NOSSAS ATIVIDADES</div>
-    <q-scroll-area class="q-mb-md hide-scrollbar" style="height: 100vh">
+    <q-scroll-area class="q-mb-md hide-scrollbar" style="height: 75vh">
       <div class="row no-wrap">
         <q-card
           class="q-mx-md"
@@ -47,7 +47,7 @@
           :key="atividade._id"
           :style="
             $q.platform.is.mobile
-              ? 'width: 72vw; height: 95vh'
+              ? 'width: 72vw; height: 72vh'
               : 'width: 250px; height: 72vh'
           "
         >

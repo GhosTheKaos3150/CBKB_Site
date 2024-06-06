@@ -5,12 +5,12 @@
     :style="
       $q.platform.is.mobile
         ? 'background-color: #e6e6e6; color: #000000; padding: 2% 10%'
-        : 'background-color: #e6e6e6; color: #000000; padding: 2% 25%'
+        : 'background-color: #e6e6e6; color: #000000; padding: 2% 15%'
     "
   >
     <div class="text-h5 text-center text-bold q-mb-md">NOSSA PROGRAMAÇÃO</div>
-    <div>
-      <div>
+    <div class="row">
+      <div class="col">
         <q-scroll-area class="q-mb-md hide-scrollbar" style="height: 80vh">
           <div :class="$q.platform.is.mobile ? 'row no-wrap' : 'no-wrap'">
             <q-card
