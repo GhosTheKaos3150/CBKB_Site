@@ -25,6 +25,16 @@
             target="_blank"
             href="https://www.instagram.com/meditaremfortaleza/"
           />
+          <q-btn
+            icon="bi-whatsapp"
+            target="_blank"
+            href="https://wa.me/5585997489811"
+          />
+          <q-btn
+            icon="bi-youtube"
+            target="_blank"
+            href="https://www.youtube.com/@NKTIKBU"
+          />
           <!-- <q-btn icon="bi-twitter" /> -->
         </q-btn-group>
       </q-toolbar>
@@ -84,6 +94,34 @@
             <q-icon name="bi-instagram" />
           </q-item-section>
           <q-item-section> Acompanhe nosso Instagram! </q-item-section>
+        </q-item>
+
+        <q-separator />
+
+        <q-item
+          clickable
+          target="_blank"
+          href="https://wa.me/5585997489811"
+          class="q-my-md"
+        >
+          <q-item-section avatar>
+            <q-icon name="bi-whatsapp" />
+          </q-item-section>
+          <q-item-section> Entre em Contato pelo Whatsapp! </q-item-section>
+        </q-item>
+
+        <q-separator />
+
+        <q-item
+          clickable
+          target="_blank"
+          href="https://www.youtube.com/@NKTIKBU"
+          class="q-my-md"
+        >
+          <q-item-section avatar>
+            <q-icon name="bi-youtube" />
+          </q-item-section>
+          <q-item-section> Siga a NTK no Youtube! </q-item-section>
         </q-item>
 
         <q-separator />

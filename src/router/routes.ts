@@ -55,6 +55,36 @@ const routes: RouteRecordRaw[] = [
     ],
   },
 
+  {
+    path: '/divulgacao/programa-fundamental',
+    component: () => import('layouts/AdminLayout.vue'),
+    children: [{ path: '', component: () => import('pages/DivulgacaoPF.vue') }],
+  },
+
+  {
+    path: '/divulgacao/retiros',
+    component: () => import('layouts/AdminLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/DivulgacaoRetiro.vue') },
+    ],
+  },
+
+  // {
+  //   path: '/divulgacao/voluntariado',
+  //   component: () => import('layouts/AdminLayout.vue'),
+  //   children: [
+  //     { path: '', component: () => import('pages/DivulgacaoVoluntario.vue') },
+  //   ],
+  // },
+
+  {
+    path: '/divulgacao/programacao',
+    component: () => import('layouts/AdminLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/ProgramacaoResumida.vue') },
+    ],
+  },
+
   // Always leave this as last one,
   // but you can also remove it
 

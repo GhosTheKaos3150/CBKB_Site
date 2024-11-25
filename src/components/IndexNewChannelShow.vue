@@ -21,6 +21,7 @@
       "
     >
       <div class="text-h6 text-center text-bold q-mb-md">ASSISTA O VÍDEO!</div>
+
       <iframe
         :width="$q.platform.is.mobile ? '100%' : '100%'"
         :height="$q.platform.is.mobile ? '550' : '550'"

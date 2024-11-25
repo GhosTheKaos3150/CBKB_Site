@@ -6,6 +6,7 @@
       infinite
       swipeable
       autoplay
+      arrows
       transition-prev="slide-right"
       transition-next="slide-left"
       control-color="secondary"

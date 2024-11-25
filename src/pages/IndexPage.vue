@@ -1,7 +1,6 @@
 <template>
   <q-page class="items-start">
     <index-banner-show />
-    <index-new-channel-show />
     <div
       class="justify-center"
       :style="
@@ -80,9 +79,11 @@
         <div class="text-subtitle2">
           Rua Dr. José Lourenço, 870 - sala 510. Aldeota
         </div>
-        <div class="text-subtitle2">contato@meditaremfortaleza.org.br</div>
-        <div class="text-subtitle2 q-mb-xl">85 99999 9999</div>
-        <div class="text-subtitle2">ACOMPANHE NOSSA PROGRAMAÇÃO!</div>
+        <div class="text-subtitle2">
+          E-mail: contato@meditaremfortaleza.org.br
+        </div>
+        <div class="text-subtitle2 q-mb-xl">Telefone: 85 99748-9811</div>
+        <div class="text-subtitle2 q-mb-xs">ACOMPANHE NOSSA PROGRAMAÇÃO!</div>
         <q-btn
           dense
           flat
@@ -90,6 +91,31 @@
           icon="bi-instagram"
           target="_blank"
           href="https://www.instagram.com/meditaremfortaleza/"
+        />
+        <q-btn
+          dense
+          flat
+          round
+          icon="bi-whatsapp"
+          target="_blank"
+          href="https://wa.me/5585997489811"
+        />
+        <div class="text-subtitle2 q-my-xs">SIGA A NTK EM OUTRAS REDES</div>
+        <q-btn
+          dense
+          flat
+          round
+          icon="bi-instagram"
+          target="_blank"
+          href="https://www.instagram.com/budismokadampabr/"
+        />
+        <q-btn
+          dense
+          flat
+          round
+          icon="bi-youtube"
+          target="_blank"
+          href="https://www.youtube.com/@NKTIKBU"
         />
       </div>
       <div class="q-mt-md" :class="$q.platform.is.mobile ? '' : 'col'">
@@ -114,7 +140,6 @@ import IndexActivityShow from '../components/IndexActivityShow.vue';
 import IndexCenterShow from '../components/IndexCenterShow.vue';
 import IndexTraditionShow from '../components/IndexTraditionShow.vue';
 import IndexGeshelaShow from '../components/IndexGeshelaShow.vue';
-import IndexNewChannelShow from '../components/IndexNewChannelShow.vue';
 
 export default defineComponent({
   name: 'IndexPage',
@@ -124,7 +149,6 @@ export default defineComponent({
     IndexCenterShow,
     IndexTraditionShow,
     IndexGeshelaShow,
-    IndexNewChannelShow,
   },
   setup() {
     return {

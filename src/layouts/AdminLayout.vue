@@ -24,6 +24,16 @@
             target="_blank"
             href="https://www.instagram.com/meditaremfortaleza/"
           />
+          <q-btn
+            icon="bi-whatsapp"
+            target="_blank"
+            href="https://wa.me/5585997489811"
+          />
+          <q-btn
+            icon="bi-youtube"
+            target="_blank"
+            href="https://www.youtube.com/@NKTIKBU"
+          />
           <!-- <q-btn icon="bi-twitter" /> -->
         </q-btn-group>
       </q-toolbar>
