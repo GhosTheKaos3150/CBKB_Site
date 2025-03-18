@@ -1,5 +1,10 @@
 <template>
   <q-page class="items-start">
+    <!-- <script
+      async
+      src="https://api.kadampa.org/en/banner/festival/leaderboard/4"
+    ></script>
+    <div id="DivAds_4"></div> -->
     <index-banner-show />
     <div
       class="justify-center"
@@ -59,12 +64,97 @@
     <index-center-show />
     <index-tradition-show />
     <index-geshela-show />
-    <q-img
-      id="findTag"
-      src="../../public/banners/header5.png"
-      fit="cover"
-      :ratio="$q.platform.is.mobile ? 16 / 9 : 16 / 3"
-    />
+    <div
+      class="justify-center"
+      :class="$q.platform.is.mobile ? '' : 'row'"
+      :style="
+        $q.platform.is.mobile
+          ? 'background-color: #1565c0; color: #ffffff;  padding: 5% 10%'
+          : 'background-color: #1565c0; color: #ffffff;  padding: 2% 25%'
+      "
+    >
+      <div>
+        <div
+          class="text-bold q-mb-md text-center"
+          :class="$q.platform.is.mobile ? 'text-h6' : 'text-h4'"
+        >
+          PRESENTES DE VENERÁVEL <br v-if="$q.platform.is.mobile" />
+          GESHE KELSANG GYATSO
+        </div>
+        <div :class="$q.platform.is.mobile ? '' : 'row'">
+          <div v-if="!$q.platform.is.mobile" class="col q-mr-sm">
+            <q-img
+              src="bm_gratis.png"
+              style="
+                width: 55%;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+              "
+            ></q-img>
+          </div>
+          <q-space></q-space>
+          <div
+            :class="
+              $q.platform.is.mobile
+                ? 'q-mb-md text-center text-subtitle2 justify-center'
+                : 'col q-mr-sm text-center text-subtitle2 justify-center'
+            "
+          >
+            Por sua enorme bondade e visando beneficiar a todos os seres vivos,
+            Venerável Geshe Kelsang Gyatso deixou dois preciosos livros em
+            formato digital como presente para todos!
+            <br />
+            <br />
+            Você pode baixar estas preciosas obras para seu celular ou e-reader
+            agora mesmo!
+            <br />
+            <br />
+            <q-btn
+              class="full-width"
+              color="light-blue-6"
+              href="https://tharpa.com/br/e-books-gratis"
+              >FAÇA O DOWNLOAD GRATUITO!</q-btn
+            >
+          </div>
+          <div :class="$q.platform.is.mobile ? 'q-mb-md' : 'col q-mr-sm'">
+            <div v-if="$q.platform.is.mobile" class="row">
+              <q-img
+                class="col"
+                src="ctsv_gratis.png"
+                style="
+                  width: 75%;
+                  margin-left: auto;
+                  margin-right: auto;
+                  display: block;
+                "
+              ></q-img>
+              <q-img
+                class="col"
+                src="bm_gratis.png"
+                style="
+                  width: 75%;
+                  margin-left: auto;
+                  margin-right: auto;
+                  display: block;
+                "
+              ></q-img>
+            </div>
+            <q-img
+              v-else
+              src="ctsv_gratis.png"
+              style="
+                width: 55%;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+              "
+            ></q-img>
+          </div>
+          <q-space></q-space>
+        </div>
+      </div>
+    </div>
     <div
       class="justify-center"
       :class="$q.platform.is.mobile ? '' : 'row'"
@@ -82,7 +172,7 @@
         <div class="text-subtitle2">
           E-mail: contato@meditaremfortaleza.org.br
         </div>
-        <div class="text-subtitle2 q-mb-xl">Telefone: 85 99748-9811</div>
+        <div class="text-subtitle2 q-mb-xl">Telefone: 85 8965-7264</div>
         <div class="text-subtitle2 q-mb-xs">ACOMPANHE NOSSA PROGRAMAÇÃO!</div>
         <q-btn
           dense
@@ -98,7 +188,7 @@
           round
           icon="bi-whatsapp"
           target="_blank"
-          href="https://wa.me/5585997489811"
+          href="https://wa.me/message/7A5QUB4NZQ6MG1"
         />
         <div class="text-subtitle2 q-my-xs">SIGA A NTK EM OUTRAS REDES</div>
         <q-btn

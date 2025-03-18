@@ -4,9 +4,8 @@
     <div :class="$q.platform.is.mobile ? '' : 'row'">
       <div :class="$q.platform.is.mobile ? 'q-mb-md' : 'col q-mr-sm'">
         <div class="text-subtitle1">
-          O Programa Geral introduz a visão, a meditação e a ação budistas
-          básicas, bem como vários outros ensinamentos e práticas, todos dentro
-          da tradição budista mahayana de Atisha and Je Tsongkhapa, para ajudar
+          O objetivo do Programa Fundamental é proporcionar uma apresentação
+          sistemática de tópicos particulares do Budismo Mahayana para capacitar
           os praticantes a aprofundarem seu conhecimento e experiência do
           budismo.
         </div>
@@ -17,28 +16,35 @@
         </div>
         <div class="q-my-md"></div>
         <div class="text-subtitle1">
-          O Programa Geral é ensinado em todos os Centros Budistas Kadampa é um
-          começo ideal para os interessados em conhecer melhor o budismo e a
-          meditação.
+          O Programa Fundamental leva aproximadamente cinco anos para ser
+          concluído e requer um procedimento de inscrição.
+        </div>
+        <div class="q-my-md"></div>
+        <div class="text-subtitle1">
+          O programa abrange os seguintes assuntos, fundamentados nos
+          ensinamentos de sutra de Buda e os respectivos comentários feitos pelo
+          Venerável Geshe Kelsang Gyatso:
         </div>
         <div class="text-subtitle1 q-mt-md">
-          <b>ASSUNTOS QUE O PROGRAMA ABRANGE:</b>
           <ol>
-            <li>Quem foi Buda?</li>
-            <li>Entender a mente</li>
-            <li>Vidas passadas e futuras</li>
-            <li>O que é carma?</li>
-            <li>Nossa preciosa vida humana</li>
-            <li>O que é meditação</li>
-            <li>Morte</li>
-            <li>O estilo de vida budista</li>
-            <li>O que é libertação?</li>
-            <li>Desenvolver renúncia</li>
-            <li>Os três treinos superiores</li>
-            <li>Tornar-se um Bodhisattva</li>
-            <li>O estilo de vida do Bodhisattva</li>
-            <li>Verdade última</li>
-            <li>Iluminação</li>
+            <li>
+              As etapas do caminho a iluminação, com base no comentário Caminho
+              Alegre da Boa Fortuna
+            </li>
+            <li>
+              Treino da mente, com base no comentário nos comentários Compaixão
+              Universal e Novo Oito Passos para a Felicidade
+            </li>
+            <li>
+              O Sutra Coração, com base no comentário Novo Coração de Sabedoria
+            </li>
+            <li>
+              Guia do estilo de vida do Bodhisattva, com base no comentário
+              Contemplações Significativas
+            </li>
+            <li>
+              As diversas mentes, com base no comentário Como Entender a Mente
+            </li>
           </ol>
         </div>
       </div>
@@ -64,7 +70,7 @@
           icon="bi-whatsapp"
           target="_blank"
           label="ENTRE EM CONTATO!"
-          href="https://wa.me/5585997489811"
+          href="https://wa.me/message/7A5QUB4NZQ6MG1"
           class="q-my-lg"
           style="
             width: 75%;

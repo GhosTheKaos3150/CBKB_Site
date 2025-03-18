@@ -4,8 +4,8 @@
     class="justify-center"
     :style="
       $q.platform.is.mobile
-        ? 'background-color: #e6e6e6; color: #000000; padding: 2% 10%'
-        : 'background-color: #e6e6e6; color: #000000; padding: 2% 15%'
+        ? `background-color: ${colourbg}; color: #000000; padding: 2% 10%`
+        : `background-color: ${colourbg}; color: #000000; padding: 2% 15%`
     "
   >
     <div class="text-h5 text-center text-bold q-mb-md">NOSSA PROGRAMAÇÃO</div>
@@ -113,6 +113,15 @@ import { api } from 'src/boot/axios';
 
 export default defineComponent({
   name: 'IndexActivityShow',
+
+  props: {
+    colourbg: {
+      type: String,
+      required: false,
+      default: '#e6e6e6',
+    },
+  },
+  emits: ['colourbg'],
 
   setup() {
     return {

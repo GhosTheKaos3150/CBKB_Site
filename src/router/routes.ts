@@ -62,10 +62,18 @@ const routes: RouteRecordRaw[] = [
   },
 
   {
-    path: '/divulgacao/retiros',
+    path: '/divulgacao/retiro',
     component: () => import('layouts/AdminLayout.vue'),
     children: [
       { path: '', component: () => import('pages/DivulgacaoRetiro.vue') },
+    ],
+  },
+
+  {
+    path: '/divulgacao/iniciacao',
+    component: () => import('layouts/AdminLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/DivulgacaoIniciacao.vue') },
     ],
   },
 

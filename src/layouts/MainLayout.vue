@@ -28,7 +28,7 @@
           <q-btn
             icon="bi-whatsapp"
             target="_blank"
-            href="https://wa.me/5585997489811"
+            href="https://wa.me/message/7A5QUB4NZQ6MG1"
           />
           <q-btn
             icon="bi-youtube"
@@ -101,7 +101,7 @@
         <q-item
           clickable
           target="_blank"
-          href="https://wa.me/5585997489811"
+          href="https://wa.me/message/7A5QUB4NZQ6MG1"
           class="q-my-md"
         >
           <q-item-section avatar>
